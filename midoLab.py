@@ -11,7 +11,7 @@ dn = os.path.dirname(os.path.realpath(__file__))
 
 midis = os.listdir(os.path.join(dn, 'midi'))
 print(midis)
-mid = MidiFile(midis[0])
+mid = MidiFile(midis[0].replace('.mid', ''))
 # port = PrintPort()
 midiout, port_name = open_midioutput(1)
 noteShift = 0  # random.randint(-5, 5)
