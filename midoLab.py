@@ -9,9 +9,10 @@ import random
 #mid = MidiFile('midi.mid')
 dn = os.path.dirname(os.path.realpath(__file__))
 
-midis = os.listdir(os.path.join(dn, 'midi'))
+midiPath = os.path.join(dn, 'midi')
+midis = os.listdir(midiPath)
 print(midis)
-mid = MidiFile(midis[0].replace('.mid', ''))
+mid = MidiFile(os.path.join(midiPath,  midis[0]))
 # port = PrintPort()
 midiout, port_name = open_midioutput(1)
 noteShift = 0  # random.randint(-5, 5)
