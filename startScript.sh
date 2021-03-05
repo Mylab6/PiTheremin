@@ -13,3 +13,4 @@ cd /
 #   >/home/pi/logs/cronlog 2>&1
 
 #chmod u+x SCRIPTNAME
+#
