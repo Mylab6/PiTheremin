@@ -4,7 +4,7 @@ import mido
 
 
 class PrintPort(BaseOutput):
-    def _send(message):
+    def _send(self, message):
         print(message.dict())
 
 
