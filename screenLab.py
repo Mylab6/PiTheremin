@@ -44,7 +44,7 @@ SPI_DEVICE = 0
 # SPI_DEVICE = 0
 
 # 128x32 display with hardware I2C:
-#disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
+# disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
 
 # 128x64 display with hardware I2C:
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
@@ -99,7 +99,7 @@ x = 0
 
 dn = os.path.dirname(os.path.realpath(__file__))
 
-midiPath = os.path.join(dn, 'fonts', 'ka1.ttf')
+midiPath = dn + '\fonts\ka1.ttf'
 print(midiPath)
 font = ImageFont.truetype('midiPath', 15)
 # ImageFont.load_default()
