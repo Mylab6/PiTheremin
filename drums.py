@@ -5,6 +5,7 @@
 #
 # MIDI Drum sequencer prototype, by Michiel Overtoom, motoom@xs4all.nl
 #
+# https://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies
 """Play drum pattern from file to MIDI out."""
 
 from __future__ import print_function
