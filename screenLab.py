@@ -101,7 +101,7 @@ dn = os.path.dirname(os.path.realpath(__file__))
 
 midiPath = os.path.join(dn, 'fonts', 'BodoniXT.ttf')
 # print(midi)
-font = ImageFont.truetype(midiPath, 15)
+font = ImageFont.truetype(midiPath, 18)
 # ImageFont.load_default()
 print(font)
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
