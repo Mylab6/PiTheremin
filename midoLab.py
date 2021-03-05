@@ -16,6 +16,7 @@ class PrintPort(BaseOutput):
             self.midiout.send_message([0x80, message.note, message.velocity])
 
     def __open(self, **kwargs):
+        print('Open port ')
         midiout, port_name = open_midioutput(1)
         self.midiout = midiout
 
