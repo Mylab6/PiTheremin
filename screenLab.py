@@ -125,7 +125,7 @@ while True:
 
     # Write two lines of text.
 
-    draw.text((x, top),       "" + str(IP),  font=font, fill=255)
+    draw.text((x, top),       "" + str(i),  font=font, fill=255)
     #draw.text((x, top+8),     str(CPU), font=font, fill=255)
     #draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
     #draw.text((x, top+25),    str(Disk),  font=font, fill=255)
