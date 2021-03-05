@@ -9,7 +9,7 @@ class PrintPort(BaseOutput):
     def _send(self, message):
         # print(message.dict())
         if(message.type == 'note_on'):
-
+            print('send note ON ')
             self.midiout.send_message([0x90, message.note, message.velocity])
         if(message.type == 'note_off'):
 
@@ -24,5 +24,5 @@ mid = MidiFile('midi.mid')
 port = PrintPort()
 
 for msg in mid.play():
-    print(msg)
+    # print(msg)
     port.send(msg)
