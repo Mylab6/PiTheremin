@@ -1,3 +1,4 @@
+# https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 from mido.ports import BaseOutput
 from mido import MidiFile
 from rtmidi.midiutil import open_midioutput
@@ -12,7 +13,7 @@ dn = os.path.dirname(os.path.realpath(__file__))
 midiPath = os.path.join(dn, 'midi')
 midis = os.listdir(midiPath)
 print(midis)
-mid = MidiFile(os.path.join(midiPath,  midis[0]))
+mid = MidiFile(os.path.join(midiPath, random.choice(midis)))
 # port = PrintPort()
 midiout, port_name = open_midioutput(1)
 noteShift = 0  # random.randint(-5, 5)
