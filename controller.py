@@ -25,3 +25,5 @@ while True:
 
     else:
         print('Unknown command: {}'.format(cmd))
+
+# /home/pi/logs/cronlog 2>&1
