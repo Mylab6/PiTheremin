@@ -5,7 +5,7 @@ print('Enter a command to do something, e.g. `create name price`.')
 print('To get help, enter `help`.')
 
 while True:
-    cmd, *args = shlex.split(input('> '))
+    cmd, e = shlex.split(input('> '))
 
     if cmd == 'drums':
         drums.main()
