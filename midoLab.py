@@ -1,5 +1,5 @@
 from mido import MidiFile
-
+import mido
 mid = MidiFile('midi.mid')
 port = mido.open_output()
 
