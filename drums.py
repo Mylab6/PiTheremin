@@ -185,11 +185,13 @@ def main(args=None):
     pattern = Drumpattern(pattern, kit=kit, humanize=args.humanize)
 
     try:
-        midiout, port_name = open_midioutput(
-            args.port,
-            api=rtmidi.API_UNIX_JACK,
-            client_name="drumseq",
-            port_name="MIDI Out")
+        midiout, port_name = open_midioutput(1)
+
+        # open_midioutput(
+        #   args.port,
+        #  api=rtmidi.API_UNIX_JACK,
+        # client_name="drumseq",
+        # port_name="MIDI Out")
     except (EOFError, KeyboardInterrupt):
         return
 
