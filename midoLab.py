@@ -7,8 +7,13 @@ import mido
 
 class PrintPort(BaseOutput):
     def _send(self, message):
-        print(message.dict())
-        self.midiout.send_message(message)
+        # print(message.dict())
+        if(message.type == 'note_on'):
+
+            self.midiout.send_message([0x90, message.note, message.velocity])
+        if(message.type == 'note_off'):
+
+            self.midiout.send_message([0x80, message.note, message.velocity])
 
     def __open(self, **kwargs):
         midiout, port_name = open_midioutput(1)
