@@ -18,6 +18,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+import subprocess
 import time
 
 import Adafruit_GPIO.SPI as SPI
@@ -26,8 +27,9 @@ import os
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+from gpiozero import Button
+button = Button(7)
 
-import subprocess
 
 # Raspberry Pi pin configuration:
 RST = None     # on the PiOLED this pin isnt used
@@ -110,6 +112,9 @@ print(font)
 i = 0
 while True:
     i = i+1
+
+    if button.is_pressed:
+        print("Button is pressed")
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
