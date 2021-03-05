@@ -22,7 +22,7 @@ import time
 
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
-
+import os
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -96,7 +96,12 @@ x = 0
 
 
 # Load default font.
-font = ImageFont.load_default()
+
+dn = os.path.dirname(os.path.realpath(__file__))
+
+midiPath = os.path.join(dn, 'fonts', 'ka1.ttf')
+font = ImageFont.truetype('midiPath', 15)
+# ImageFont.load_default()
 print(font)
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
