@@ -1,12 +1,14 @@
 import readline
 import shlex
-
+import drums
 print('Enter a command to do something, e.g. `create name price`.')
 print('To get help, enter `help`.')
 
 while True:
     cmd, *args = shlex.split(input('> '))
 
+    if cmd == 'drums':
+        drums.main()
     if cmd == 'exit':
         break
 
