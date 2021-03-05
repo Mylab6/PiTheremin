@@ -44,7 +44,7 @@ SPI_DEVICE = 0
 # SPI_DEVICE = 0
 
 # 128x32 display with hardware I2C:
-# disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
+#disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
 
 # 128x64 display with hardware I2C:
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
@@ -99,9 +99,9 @@ x = 0
 
 dn = os.path.dirname(os.path.realpath(__file__))
 
-midiPath = dn + '\fonts\ka1.ttf'
-print(midiPath)
-font = ImageFont.truetype('midiPath', 15)
+midiPath = os.path.join(dn, 'fonts', 'ka1.ttf')
+# print(midi)
+font = ImageFont.truetype(midiPath, 15)
 # ImageFont.load_default()
 print(font)
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
