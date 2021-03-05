@@ -99,7 +99,7 @@ x = 0
 
 dn = os.path.dirname(os.path.realpath(__file__))
 
-midiPath = os.path.join(dn, 'fonts', 'ka1.ttf')
+midiPath = os.path.join(dn, 'fonts', 'BodoniXT.ttf')
 # print(midi)
 font = ImageFont.truetype(midiPath, 15)
 # ImageFont.load_default()
