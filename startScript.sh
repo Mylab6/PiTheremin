@@ -4,7 +4,7 @@
 
 #sudo python3 /home/pi/PiMidi/controller.py
 cd /
-cd  /home/pi/PiMidi/
+cd  /home/pi/PiMidi
 #cd home/pi/midi_controller
 sudo python3 controller.py
 #midi_controller.py
