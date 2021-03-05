@@ -100,6 +100,7 @@ x = 0
 dn = os.path.dirname(os.path.realpath(__file__))
 
 midiPath = os.path.join(dn, 'fonts', 'ka1.ttf')
+print(midiPath)
 font = ImageFont.truetype('midiPath', 15)
 # ImageFont.load_default()
 print(font)
