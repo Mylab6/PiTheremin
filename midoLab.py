@@ -1,15 +1,20 @@
 from mido.ports import BaseOutput
 from mido import MidiFile
 from rtmidi.midiutil import open_midioutput
-
+import os
 import mido
 
 import random
 
-mid = MidiFile('midi.mid')
-#port = PrintPort()
+#mid = MidiFile('midi.mid')
+dn = os.path.dirname(os.path.realpath(__file__))
+
+midis = os.listdir(os.path.join(dn, 'midi'))
+print(midis)
+mid = MidiFile(midis[0])
+# port = PrintPort()
 midiout, port_name = open_midioutput(1)
-noteShift = random.randint(-5, 5)
+noteShift = 0  # random.randint(-5, 5)
 for message in mid.play():
     # print(msg)
     # port.send(msg)
