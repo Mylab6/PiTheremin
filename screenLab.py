@@ -23,9 +23,9 @@ import time
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
 
-from Pillow import Image
-from Pillow import ImageDraw
-from Pillow import ImageFont
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 
 
 # Raspberry Pi pin configuration:
