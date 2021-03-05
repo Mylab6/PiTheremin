@@ -28,7 +28,7 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 from gpiozero import Button
-button = Button(7)
+button = Button(4)
 
 
 # Raspberry Pi pin configuration:
