@@ -101,7 +101,7 @@ dn = os.path.dirname(os.path.realpath(__file__))
 
 midiPath = os.path.join(dn, 'fonts', 'BodoniXT.ttf')
 # print(midi)
-font = ImageFont.truetype(midiPath, 18)
+font = ImageFont.truetype(midiPath, 16)
 # ImageFont.load_default()
 print(font)
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
@@ -125,7 +125,7 @@ while True:
 
     # Write two lines of text.
 
-    draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
+    draw.text((x, top),       "" + str(IP),  font=font, fill=255)
     #draw.text((x, top+8),     str(CPU), font=font, fill=255)
     #draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
     #draw.text((x, top+25),    str(Disk),  font=font, fill=255)
