@@ -2,6 +2,7 @@ from BasicScreenControl import BasicScreenControl
 import readline
 import shlex
 import drums
+import time
 
 screen = BasicScreenControl()
 print('Enter a command to do something, e.g. `create name price`.')
@@ -14,6 +15,7 @@ while True:
         drums.main()
     if cmd == 'exit':
         screen.off()
+        time.sleep(1)
 
         break
 
