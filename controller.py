@@ -13,6 +13,8 @@ while True:
         screen.updateText("Playing Drums !")
         drums.main()
     if cmd == 'exit':
+        screen.off()
+
         break
 
     elif cmd == 'help':

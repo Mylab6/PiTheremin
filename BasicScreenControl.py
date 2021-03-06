@@ -1,4 +1,4 @@
-
+# https://github.com/adafruit/Adafruit_Python_SSD1306
 import subprocess
 import time
 
@@ -17,6 +17,7 @@ class BasicScreenControl:
     # Can render about 13 letters safely per line
     # 4 lines
     currentTexts = ["Awaiting Input "]
+    shutDown = False
 
 # Raspberry Pi pin configuration:
     RST = None     # on the PiOLED this pin isnt used
@@ -65,6 +66,13 @@ class BasicScreenControl:
 
     def runScreenInternal(self):
         while True:
+
+            if(self.shutDown):
+
+                # self.disp.clear()
+                self.disp.reset()
+                break
+
             self.drawnScreen()
 
     def drawnScreen(self):
