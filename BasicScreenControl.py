@@ -52,7 +52,7 @@ class ScreenLabs:
         self.font = ImageFont.truetype(midiPath, self.fontSize)
        # print(self.font)
         self.i = 0
-        self.runScreen()
+        # self.runScreen()
 
     def updateText(self, *texts):
         self.currentTexts = texts
@@ -90,5 +90,6 @@ class ScreenLabs:
         time.sleep(.01)
 
 
-screen = ScreenLabs().runScreen()
+screen = ScreenLabs()
+screen.runScreen()
 screen.updateText("Dream", "It ")
