@@ -2,7 +2,7 @@ import time
 
 from BasicScreenControl import BasicScreenControl
 screen = BasicScreenControl()
-screen.runScreen()
+# screen.runScreen()
 i = 0
 while True:
     i = i + 1

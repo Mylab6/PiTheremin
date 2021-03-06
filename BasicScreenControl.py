@@ -55,7 +55,7 @@ class BasicScreenControl:
         self.font = ImageFont.truetype(midiPath, self.fontSize)
        # print(self.font)
         self.i = 0
-        # self.runScreen()
+        self.runScreen()
 
     def updateText(self, *texts):
         self.currentTexts = texts
