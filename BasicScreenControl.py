@@ -16,8 +16,7 @@ class BasicScreenControl:
     button = Button(4)
     # Can render about 13 letters safely per line
     # 4 lines
-    currentTexts = ["hat", "cat", "dog",
-                    '123456789ABCDEFG', '390290620923451']
+    currentTexts = ["Awaiting Input "]
 
 # Raspberry Pi pin configuration:
     RST = None     # on the PiOLED this pin isnt used
@@ -66,9 +65,9 @@ class BasicScreenControl:
 
     def runScreenInternal(self):
         while True:
-            self.updateScreen()
+            self.drawnScreen()
 
-    def updateScreen(self):
+    def drawnScreen(self):
         #print('Update screen')
         self.i = self.i+1
 
