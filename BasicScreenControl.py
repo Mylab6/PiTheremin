@@ -92,4 +92,5 @@ class ScreenLabs:
 
 screen = ScreenLabs()
 screen.runScreen()
-screen.updateText("Dream", "It ")
+while True:
+    screen.updateText("Dream", "It ")
