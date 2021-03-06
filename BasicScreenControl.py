@@ -12,7 +12,7 @@ from gpiozero import Button
 import threading
 
 
-class ScreenLabs:
+class BasicScreenControl:
     button = Button(4)
     # Can render about 13 letters safely per line
     # 4 lines
@@ -93,12 +93,3 @@ class ScreenLabs:
         self.disp.image(self.image)
         self.disp.display()
         time.sleep(.01)
-
-
-screen = ScreenLabs()
-screen.runScreen()
-i = 0
-while True:
-    i = i + 1
-    screen.updateText("Dream", str(i))
-    time.sleep(.01)
