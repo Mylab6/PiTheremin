@@ -1,13 +1,16 @@
+from BasicScreenControl import BasicScreenControl
 import readline
 import shlex
 import drums
+
+screen = BasicScreenControl()
 print('Enter a command to do something, e.g. `create name price`.')
 print('To get help, enter `help`.')
-
 while True:
     cmd, *args = shlex.split(input('> '))
 
     if cmd == 'drums':
+        screen.updateText("Playing Drums !")
         drums.main()
     if cmd == 'exit':
         break
