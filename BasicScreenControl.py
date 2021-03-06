@@ -13,7 +13,7 @@ from gpiozero import Button
 
 class ScreenLabs:
     button = Button(4)
-
+    currentTexts = []
 
 # Raspberry Pi pin configuration:
     RST = None     # on the PiOLED this pin isnt used
@@ -21,18 +21,7 @@ class ScreenLabs:
     DC = 23
     SPI_PORT = 0
     SPI_DEVICE = 0
-
-# Beaglebone Black pin configuration:
-# RST = 'P9_12'
-# Note the following are only used with SPI:
-# DC = 'P9_15'
-# SPI_PORT = 1
-# SPI_DEVICE = 0
-
-# 128x32 display with hardware I2C:
-#disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
-
-# 128x64 display with hardware I2C:
+    fontSize = 16
     disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
     def __init__(self):
@@ -58,9 +47,17 @@ class ScreenLabs:
         dn = os.path.dirname(os.path.realpath(__file__))
 
         midiPath = os.path.join(dn, 'fonts', 'BodoniXT.ttf')
-        self.font = ImageFont.truetype(midiPath, 16)
-        print(self.font)
+
+        self.font = ImageFont.truetype(midiPath, self.fontSize)
+       # print(self.font)
         self.i = 0
+
+    def updateText(self, *texts):
+        self.currentTexts = texts
+
+    def runScreen(self):
+        while True:
+            self.updateScreen()
 
     def updateScreen(self):
         self.i = self.i+1
@@ -77,15 +74,15 @@ class ScreenLabs:
         MemUsage = subprocess.check_output(cmd, shell=True)
         cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
         Disk = subprocess.check_output(cmd, shell=True)
-
-        self.draw.text((self.x, self.top),       "" +
-                       str(self.i),  font=self.font, fill=255)
+# for count, value in enumerate(values):
+        #screenSpacing = 16
+        for index, newString in enumerate(self.currentTexts):
+            self.draw.text((self.x, self.top + index * self.fontSize),       "" +
+                           str(newString),  font=self.font, fill=255)
 
         self.disp.image(self.image)
         self.disp.display()
         time.sleep(.01)
 
 
-screen = ScreenLabs()
-while True:
-    screen.updateScreen()
+ScreenLabs().updateText("Dream", "It ")
