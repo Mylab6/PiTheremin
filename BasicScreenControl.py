@@ -76,7 +76,6 @@ class BasicScreenControl:
             self.drawnScreen()
 
     def drawnScreen(self):
-        #print('Update screen')
         self.i = self.i+1
 
         if self.button.is_pressed:
@@ -91,8 +90,7 @@ class BasicScreenControl:
         MemUsage = subprocess.check_output(cmd, shell=True)
         cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
         Disk = subprocess.check_output(cmd, shell=True)
-# for count, value in enumerate(values):
-        # screenSpacing = 16
+
         for index, newString in enumerate(self.currentTexts):
             self.draw.text((self.x, self.top + index * self.fontSize),       "" +
                            str(newString),  font=self.font, fill=255)
@@ -100,3 +98,6 @@ class BasicScreenControl:
         self.disp.image(self.image)
         self.disp.display()
         time.sleep(.01)
+
+    def off(self):
+        self.shutDown = True
