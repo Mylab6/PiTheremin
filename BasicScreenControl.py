@@ -69,8 +69,8 @@ class BasicScreenControl:
 
             if(self.shutDown):
 
-                # self.disp.clear()
-                self.disp.reset()
+                self.disp.clear()
+                # self.disp.reset()
                 break
 
             self.drawnScreen()
