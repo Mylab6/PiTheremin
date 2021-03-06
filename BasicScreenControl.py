@@ -9,6 +9,7 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 from gpiozero import Button
+import threading
 
 
 class ScreenLabs:
@@ -51,11 +52,15 @@ class ScreenLabs:
         self.font = ImageFont.truetype(midiPath, self.fontSize)
        # print(self.font)
         self.i = 0
+        self.runScreen()
 
     def updateText(self, *texts):
         self.currentTexts = texts
 
     def runScreen(self):
+        threading.Thread(target=self._runScreenInternal)
+
+    def _runScreenInternal(self):
         while True:
             self.updateScreen()
 
@@ -75,7 +80,7 @@ class ScreenLabs:
         cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
         Disk = subprocess.check_output(cmd, shell=True)
 # for count, value in enumerate(values):
-        #screenSpacing = 16
+        # screenSpacing = 16
         for index, newString in enumerate(self.currentTexts):
             self.draw.text((self.x, self.top + index * self.fontSize),       "" +
                            str(newString),  font=self.font, fill=255)
@@ -85,4 +90,5 @@ class ScreenLabs:
         time.sleep(.01)
 
 
-ScreenLabs().updateText("Dream", "It ")
+ScreenLabs().runScreen()
+.updateText("Dream", "It ")
