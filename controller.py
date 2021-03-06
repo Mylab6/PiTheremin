@@ -17,7 +17,7 @@ while True:
         # cant get this to work
         screen.updateText('Thanks for playing')
         time.sleep(3)
-        screen.updateText("")
+        screen.off()
 
         break
 

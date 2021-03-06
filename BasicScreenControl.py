@@ -69,7 +69,7 @@ class BasicScreenControl:
 
             if(self.shutDown):
 
-                self.disp.clear()
+                self.updateText("")
                 # self.disp.reset()
                 break
 
