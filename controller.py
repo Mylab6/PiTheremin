@@ -14,8 +14,10 @@ while True:
         screen.updateText("Playing Drums !")
         drums.main()
     if cmd == 'exit':
-        screen.off()
-        time.sleep(1)
+        # cant get this to work
+        screen.updateText('Thanks for playing')
+        time.sleep(3)
+        screen.updateText("")
 
         break
 
