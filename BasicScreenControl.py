@@ -14,6 +14,8 @@ import threading
 
 class ScreenLabs:
     button = Button(4)
+    # Can render about 13 letters safely per line
+    # 4 lines
     currentTexts = ["hat", "cat", "dog",
                     '123456789ABCDEFG', '390290620923451']
 
@@ -59,7 +61,8 @@ class ScreenLabs:
         self.currentTexts = texts
 
     def runScreen(self):
-        threading.Thread(target=self._runScreenInternal)
+        screenThread = threading.Thread(target=self.runScreenInternal)
+        screenThread.start()
 
     def runScreenInternal(self):
         while True:
@@ -93,6 +96,9 @@ class ScreenLabs:
 
 
 screen = ScreenLabs()
-screen.runScreenInternal()
+screen.runScreen()
+i = 0
 while True:
-    screen.updateText("Dream", "It ")
+    i = i + 1
+    screen.updateText("Dream", str(i))
+    time.sleep(.01)
