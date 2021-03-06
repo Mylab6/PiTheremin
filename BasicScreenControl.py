@@ -14,7 +14,8 @@ import threading
 
 class ScreenLabs:
     button = Button(4)
-    currentTexts = ["hat", "cat", "dog"]
+    currentTexts = ["hat", "cat", "dog",
+                    '123456789ABCDEFG', '390290620923451']
 
 # Raspberry Pi pin configuration:
     RST = None     # on the PiOLED this pin isnt used
