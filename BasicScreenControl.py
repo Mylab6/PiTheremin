@@ -69,7 +69,7 @@ class BasicScreenControl:
             self.updateScreen()
 
     def updateScreen(self):
-        print('Update screen')
+        #print('Update screen')
         self.i = self.i+1
 
         if self.button.is_pressed:
