@@ -60,7 +60,7 @@ class ScreenLabs:
     def runScreen(self):
         threading.Thread(target=self._runScreenInternal)
 
-    def _runScreenInternal(self):
+    def runScreenInternal(self):
         while True:
             self.updateScreen()
 
@@ -92,6 +92,6 @@ class ScreenLabs:
 
 
 screen = ScreenLabs()
-screen.runScreen()
+screen.runScreenInternal
 while True:
     screen.updateText("Dream", "It ")
