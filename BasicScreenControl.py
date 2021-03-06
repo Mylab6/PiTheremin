@@ -92,6 +92,6 @@ class ScreenLabs:
 
 
 screen = ScreenLabs()
-screen.runScreenInternal
+screen.runScreenInternal()
 while True:
     screen.updateText("Dream", "It ")
