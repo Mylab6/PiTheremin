@@ -90,5 +90,5 @@ class ScreenLabs:
         time.sleep(.01)
 
 
-ScreenLabs().runScreen()
-.updateText("Dream", "It ")
+screen = ScreenLabs().runScreen()
+screen.updateText("Dream", "It ")
