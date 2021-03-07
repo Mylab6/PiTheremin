@@ -43,7 +43,7 @@ class BasicMidiOut:
             self.sendMidi(
                 self.lastNote, 100, 0x90)
             self.screen.updateText(
-                "Current Distance CM :" + str(self.tfReader.currentDist),
+                "Dist CM :" + str(self.tfReader.currentDist),
 
                 "Current Note " + str(self.lastNote))
             # print(self.lastNote)
