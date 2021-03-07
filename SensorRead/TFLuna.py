@@ -55,5 +55,5 @@ while True:
               format(distance, strength, temperature))  # print sample data
     except:
         print("fail")
-    time.sleep(1)
+    time.sleep(.01)
 ser.close()
