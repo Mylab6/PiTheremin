@@ -29,8 +29,9 @@ class BasicMidiOut:
             # middle c
             baseNote = 60
 
-            self.sendMidi(baseNote + math.ceil(self.tfReader.currentDist / 8))
-            time.sleep(1)
+            self.sendMidi(
+                baseNote + max(75,  math.ceil(self.tfReader.currentDist / 2)))
+            time.sleep(.5)
 
 
 BasicMidiOut().playNotesLoop()
