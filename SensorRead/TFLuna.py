@@ -52,5 +52,6 @@ while True:
     distance, strength, temperature = read_tfluna_data()  # read values
     print('Distance: {0:2.2f} m, Strength: {1:2.0f} / 65535 (16-bit), Chip Temperature: {2:2.1f} C'.
           format(distance, strength, temperature))  # print sample data
-    ser.close()
+
     time.sleep(1)
+ser.close()
