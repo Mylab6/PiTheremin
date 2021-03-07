@@ -1,4 +1,5 @@
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
+from BasicScreenControl import BasicScreenControl
 from mido.ports import BaseOutput
 from mido import MidiFile
 from rtmidi.midiutil import open_midioutput
@@ -16,6 +17,7 @@ class BasicMidiOut:
 
     def __init__(self):
         self.midiout, self.port_name = open_midioutput(1)
+        self.screen = BasicScreenControl()
 
     def sendMidi(self, note, velocity=112, command=0x90):
 
@@ -40,7 +42,8 @@ class BasicMidiOut:
                 75,  baseNote + math.ceil(self.tfReader.currentDist / 4))
             self.sendMidi(
                 self.lastNote, 100, 0xE0)
-            print(self.lastNote)
+            self.screen.updateText(str(self.lastNote))
+            # print(self.lastNote)
             time.sleep(1)
 
 
