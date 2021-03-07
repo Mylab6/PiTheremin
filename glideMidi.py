@@ -34,8 +34,10 @@ class BasicMidiOut:
         while True:
             # middle c
             if(self.lastNote):
-                self.sendMidi(self.lastNote, 112, True)
+                pass
+                #self.sendMidi(self.lastNote, 112, True)
             baseNote = 50
+
             self.lastNote = max(
                 68,  baseNote + math.ceil(self.tfReader.currentDist / 2))
             self.sendMidi(
