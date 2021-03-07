@@ -14,8 +14,7 @@ import time
 import numpy as np
 import os
 
-os.write("sudo chmod 777 /dev/serial0")
-os.write("sudo chown pi:pi /dev/serial0")
+
 #
 ##########################
 # TFLuna Lidar
