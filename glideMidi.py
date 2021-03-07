@@ -39,7 +39,7 @@ class TestMidi(BasicMidiOut):
 
     def __init__(self):
         self.screen = BasicScreenControl()
-        self.MidiInClass = BasicMidiIn()
+        #self.MidiInClass = BasicMidiIn()
         super().__init__()
 
     def playNotesLoop(self):
