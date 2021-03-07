@@ -16,6 +16,8 @@ from rtmidi.midiconstants import (
     PITCH_BEND
 )
 
+# /home/pi/PiMidi/keithMidi.py
+
 
 def main():
     logging.basicConfig(
