@@ -28,3 +28,4 @@ if ser.isOpen() == False:
     print(ser)
     time.sleep(2)
     counter = ser.in_waiting
+    print(counter)
