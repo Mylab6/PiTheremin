@@ -41,7 +41,7 @@ class BasicMidiOut:
             self.lastNote = min(
                 75,  baseNote + math.ceil(self.tfReader.currentDist / 4))
             self.sendMidi(
-                self.lastNote, 100, 0xE0)
+                self.lastNote, 100, 0x90)
             self.screen.updateText(str(self.lastNote))
             # print(self.lastNote)
             time.sleep(1)
