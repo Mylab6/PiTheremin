@@ -12,6 +12,8 @@ import math
 
 
 class BasicMidiOut:
+    lastNote = False
+
     def __init__(self):
         self.midiout, self.port_name = open_midioutput(1)
 
@@ -31,7 +33,8 @@ class BasicMidiOut:
         self.tfReader = TFLuna()
         while True:
             # middle c
-            self.sendMidi(self.lastNote, 112, True)
+            if(self.lastNote):
+                self.sendMidi(self.lastNote, 112, True)
             baseNote = 50
             self.lastNote = max(
                 68,  baseNote + math.ceil(self.tfReader.currentDist / 2))
