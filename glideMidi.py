@@ -27,10 +27,10 @@ class BasicMidiOut:
         self.tfReader = TFLuna()
         while True:
             # middle c
-            baseNote = 60
+            baseNote = 50
 
             self.sendMidi(
-                max(70,  baseNote + math.ceil(self.tfReader.currentDist / 2)))
+                max(68,  baseNote + math.ceil(self.tfReader.currentDist / 2)))
             time.sleep(.05)
 
 
