@@ -13,21 +13,22 @@ import math
 
 
 class BasicMidiOut:
-    lastNote = False
 
-    def __init__(self):
-        self.midiout, self.port_name = open_midioutput(1)
-        self.screen = BasicScreenControl()
+    def __init__(self, midiPort=1):
+        self.midiout, self.port_name = open_midioutput(midiPort)
 
     def sendMidi(self, note, velocity=112, command=0x90):
-
         self.midiout.send_message(
             [command, note, velocity])
 
- #   if(message.type == 'note_off'):
 
-  #      midiout.send_message(
-   #         [0x80, message.note, message.velocity])
+class TestMidi(BasicMidiOut):
+    lastNote = False
+
+    def __init__(self):
+        self.screen = BasicScreenControl()
+        super().__init__()
+
     def playNotesLoop(self):
         self.tfReader = TFLuna()
         baseNote = 50
@@ -35,11 +36,11 @@ class BasicMidiOut:
             # middle c
             if(self.lastNote):
                 pass
-                #self.sendMidi(self.lastNote, 112, True)
-
+                # self.sendMidi(self.lastNote, 112, True)
+    # math.ceil(
             time.sleep(.31)
             self.lastNote = min(
-                75,  baseNote + math.ceil(self.tfReader.currentDist / 4))
+                75,  baseNote + self.tfReader.currentDist / 4)
             self.sendMidi(
                 self.lastNote, 100, 0x90)
             self.screen.updateText(
@@ -50,4 +51,4 @@ class BasicMidiOut:
             time.sleep(1)
 
 
-BasicMidiOut().playNotesLoop()
+TestMidi().playNotesLoop()
