@@ -15,10 +15,14 @@ class BasicMidiOut:
     def __init__(self):
         self.midiout, self.port_name = open_midioutput(1)
 
-    def sendMidi(self, note, velocity=112):
+    def sendMidi(self, note, velocity=112, off=False):
+        command = 0x90
+        if(off):
+            command = 0x80
 
         self.midiout.send_message(
-            [0x90, note, velocity])
+            [command, note, velocity])
+
  #   if(message.type == 'note_off'):
 
   #      midiout.send_message(
@@ -27,10 +31,12 @@ class BasicMidiOut:
         self.tfReader = TFLuna()
         while True:
             # middle c
+            self.sendMidi(self.lastNote, 112, True)
             baseNote = 50
-
+            self.lastNote = max(
+                68,  baseNote + math.ceil(self.tfReader.currentDist / 2))
             self.sendMidi(
-                max(68,  baseNote + math.ceil(self.tfReader.currentDist / 2)))
+                self.lastNote)
             time.sleep(.25)
 
 
