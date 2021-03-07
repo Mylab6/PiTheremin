@@ -27,6 +27,7 @@ class BasicMidiOut:
 
     def __init__(self, midiPort=1):
         self.midiout, self.port_name = open_midioutput(midiPort)
+        print('On port name ', self.port_name)
 
     def sendMidi(self, note, velocity=112, command=0x90):
         self.midiout.send_message(
