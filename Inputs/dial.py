@@ -46,6 +46,7 @@ while True:
 
     # read the analog pin
     trim_pot = chan0.value
+    print(trim_pot)
 
     # how much has it changed since the last read?
     pot_adjust = abs(trim_pot - last_read)
