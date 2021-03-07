@@ -26,3 +26,5 @@ print(ser)
 if ser.isOpen() == False:
     ser.open()
     print(ser)
+    time.sleep(2)
+    counter = ser.in_waiting
