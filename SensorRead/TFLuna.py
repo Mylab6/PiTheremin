@@ -29,6 +29,7 @@ class TFLuna():
     # read ToF data from TF-Luna
     ############################
     #
+    currentDist = 0
 
     def read_tfluna_data(self):
         while True:
@@ -56,11 +57,14 @@ class TFLuna():
             try:
                 distance, strength, temperature = self.read_tfluna_data()  # read values
                 # print(distance)
-                print('Distance: {0:2.2f} cm, Strength: {1:2.0f} / 65535 (16-bit), Chip Temperature: {2:2.1f} C'.
-                      format(distance, strength, temperature))  # print sample data
+                self.currentDist = distance
+                self.currentTemp = temperature
+                self.currentStrength = strength
+                # print('Distance: {0:2.2f} cm, Strength: {1:2.0f} / 65535 (16-bit), Chip Temperature: {2:2.1f} C'.
+                #      format(distance, strength, temperature))  # print sample data
             except Exception as id:
                 print(str(id))
-            time.sleep(.001)
+            time.sleep(.01)
 
 
 TFLuna().StartDistLoop()
