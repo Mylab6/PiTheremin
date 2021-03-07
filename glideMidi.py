@@ -31,13 +31,14 @@ class BasicMidiOut:
    #         [0x80, message.note, message.velocity])
     def playNotesLoop(self):
         self.tfReader = TFLuna()
+        baseNote = 50
         while True:
             # middle c
             if(self.lastNote):
 
                 self.sendMidi(self.lastNote, 112, True)
-            baseNote = 50
 
+            time.sleep(.31)
             self.lastNote = max(
                 68,  baseNote + math.ceil(self.tfReader.currentDist / 2))
             self.sendMidi(
