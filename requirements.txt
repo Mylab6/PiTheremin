@@ -1,3 +1,6 @@
 mido
 Pillow
 gpiozero
+serial
+numpy
+#sudo apt-get install libatlas-base-dev

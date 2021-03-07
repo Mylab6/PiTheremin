@@ -27,6 +27,7 @@ ser = serial.Serial("/dev/serial0", 115200, timeout=0)
 
 
 def read_tfluna_data():
+    print(' In read ')
     while True:
         counter = ser.in_waiting  # count the number of bytes of the serial port
         if counter > 8:
@@ -42,6 +43,7 @@ def read_tfluna_data():
                 temperature = bytes_serial[6] + bytes_serial[7]*256
                 temperature = (temperature/8.0) - \
                     256.0  # temp scaling and offset
+                print(distance)
                 return distance/100.0, strength, temperature
 
 
