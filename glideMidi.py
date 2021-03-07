@@ -31,7 +31,7 @@ class BasicMidiOut:
 
             self.sendMidi(
                 max(68,  baseNote + math.ceil(self.tfReader.currentDist / 2)))
-            time.sleep(.05)
+            time.sleep(.25)
 
 
 BasicMidiOut().playNotesLoop()
