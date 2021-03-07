@@ -4,3 +4,4 @@ gpiozero
 serial
 numpy
 #sudo apt-get install libatlas-base-dev
+python-rtmidi

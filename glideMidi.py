@@ -17,10 +17,7 @@ class BasicMidiOut:
     def __init__(self):
         self.midiout, self.port_name = open_midioutput(1)
 
-    def sendMidi(self, note, velocity=112, off=False):
-        command = 0x90
-        if(off):
-            command = 0x80
+    def sendMidi(self, note, velocity=112, command=0x90):
 
         self.midiout.send_message(
             [command, note, velocity])
@@ -31,7 +28,7 @@ class BasicMidiOut:
    #         [0x80, message.note, message.velocity])
     def playNotesLoop(self):
         self.tfReader = TFLuna()
-        baseNote = 50
+        baseNote = 60
         while True:
             # middle c
             if(self.lastNote):
@@ -42,8 +39,8 @@ class BasicMidiOut:
             self.lastNote = max(
                 68,  baseNote + math.ceil(self.tfReader.currentDist / 4))
             self.sendMidi(
-                self.lastNote)
-            time.sleep(.31)
+                self.lastNote, 112, 0xE0)
+            time.sleep(0.3)
 
 
 BasicMidiOut().playNotesLoop()
