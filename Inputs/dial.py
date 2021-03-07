@@ -60,9 +60,13 @@ while True:
 
         # set OS volume playback volume
         print('Volume = {volume}%' .format(volume=set_volume))
-        set_vol_cmd = 'sudo amixer cset numid=1 -- {volume}% > /dev/null' \
-            .format(volume=set_volume)
-        os.system(set_vol_cmd)
+        try:
+            set_vol_cmd = 'sudo amixer cset numid=1 -- {volume}% > /dev/null' \
+                .format(volume=set_volume)
+            os.system(set_vol_cmd)
+
+        except print(0):
+            pass
 
         # save the potentiometer reading for the next loop
         last_read = trim_pot

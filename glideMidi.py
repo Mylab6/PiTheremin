@@ -3,6 +3,8 @@ from BasicScreenControl import BasicScreenControl
 from mido.ports import BaseOutput
 from mido import MidiFile
 from rtmidi.midiutil import open_midioutput
+from rtmidi.midiutil import open_midiinput
+
 import os
 import mido
 import time
@@ -10,6 +12,15 @@ import random
 from Inputs.TFLuna import TFLuna
 
 import math
+
+
+class BasicMidiIn:
+
+    def __init__(self, midiPort=1):
+        self.midiInput, self.port_name = open_midiinput(midiPort)
+
+    def checkForMidiMssg(self):
+        print(self.midiInput.get_message())
 
 
 class BasicMidiOut:
@@ -27,9 +38,11 @@ class TestMidi(BasicMidiOut):
 
     def __init__(self):
         self.screen = BasicScreenControl()
+        self.MidiInClass = BasicMidiIn()
         super().__init__()
 
     def playNotesLoop(self):
+        self.MidiInClass.checkForMidiMssg()
         self.tfReader = TFLuna()
         baseNote = 50
         while True:
