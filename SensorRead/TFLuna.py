@@ -30,10 +30,10 @@ ser = serial.Serial("/dev/serial0", 115200, timeout=0)
 
 
 def read_tfluna_data():
-    print(' In read ')
+    #print(' In read ')
     while True:
         counter = ser.in_waiting  # count the number of bytes of the serial port
-        print(' In read 2')
+        print(' In read ', counter)
 
         if counter > 8:
             bytes_serial = ser.read(9)  # read 9 bytes
