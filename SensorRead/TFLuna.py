@@ -19,6 +19,9 @@ import numpy as np
 ############################
 #
 
+# mini UART serial device
+ser = serial.Serial("/dev/serial0", 115200, timeout=0)
+
 
 def read_tfluna_data():
     while True:
