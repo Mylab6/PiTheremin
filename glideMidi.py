@@ -35,8 +35,8 @@ class BasicMidiOut:
         while True:
             # middle c
             if(self.lastNote):
-
-                self.sendMidi(self.lastNote, 112, True)
+                pass
+                #self.sendMidi(self.lastNote, 112, True)
 
             time.sleep(.31)
             self.lastNote = max(
