@@ -33,6 +33,8 @@ def read_tfluna_data():
     print(' In read ')
     while True:
         counter = ser.in_waiting  # count the number of bytes of the serial port
+        print(' In read 2')
+
         if counter > 8:
             bytes_serial = ser.read(9)  # read 9 bytes
             ser.reset_input_buffer()  # reset buffer
