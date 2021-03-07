@@ -40,7 +40,7 @@ class BasicMidiOut:
 
             time.sleep(.31)
             self.lastNote = max(
-                68,  baseNote + math.ceil(self.tfReader.currentDist / 2))
+                68,  baseNote + math.ceil(self.tfReader.currentDist / 4))
             self.sendMidi(
                 self.lastNote)
             time.sleep(.31)
