@@ -30,7 +30,7 @@ class BasicMidiOut:
    #         [0x80, message.note, message.velocity])
     def playNotesLoop(self):
         self.tfReader = TFLuna()
-        baseNote = 60
+        baseNote = 50
         while True:
             # middle c
             if(self.lastNote):
@@ -42,7 +42,10 @@ class BasicMidiOut:
                 75,  baseNote + math.ceil(self.tfReader.currentDist / 4))
             self.sendMidi(
                 self.lastNote, 100, 0x90)
-            self.screen.updateText(str(self.lastNote))
+            self.screen.updateText(
+                "Current Distance CM :" + str(self.tfReader.currentDist),
+
+                "Current Note " + str(self.lastNote))
             # print(self.lastNote)
             time.sleep(1)
 
