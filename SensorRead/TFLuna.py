@@ -25,3 +25,4 @@ ser = serial.Serial("/dev/serial0", 115200, timeout=0)
 print(ser)
 if ser.isOpen() == False:
     ser.open()
+    print(ser)
