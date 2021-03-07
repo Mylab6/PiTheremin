@@ -5,3 +5,6 @@ serial
 numpy
 #sudo apt-get install libatlas-base-dev
 python-rtmidi
+
+adafruit-circuitpython-mcp3xxx
+adafruit-blinka
