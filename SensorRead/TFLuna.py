@@ -55,6 +55,7 @@ class TFLuna():
 
             try:
                 distance, strength, temperature = self.read_tfluna_data()  # read values
+                print(distance)
                 print('Distance: {0:2.2f} m, Strength: {1:2.0f} / 65535 (16-bit), Chip Temperature: {2:2.1f} C'.
                       format(distance, strength, temperature))  # print sample data
             except Exception as id:
