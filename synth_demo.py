@@ -2,6 +2,7 @@ import time
 import itertools
 import math
 from collections import OrderedDict
+import synthplayer
 from synthplayer.sample import Sample
 from synthplayer.synth import WaveSynth, key_freq, octave_notes, major_chord_keys
 from synthplayer.synth import Sine, Triangle, Pulse, Square, SquareH, Sawtooth, SawtoothH, WhiteNoise, Linear, Harmonics
@@ -500,6 +501,7 @@ def chords():
 
 
 if __name__ == "__main__":
+    print( synthplayer.playback.query_devices) 
     harmonics()
     osc_bench()
     lfo_func()
