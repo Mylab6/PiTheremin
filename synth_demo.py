@@ -501,7 +501,6 @@ def chords():
 
 
 if __name__ == "__main__":
-    print( synthplayer.playback.query_devices) 
     harmonics()
     osc_bench()
     lfo_func()
