@@ -59,8 +59,7 @@ class RotaryRead:
 
         while True:								# start test
             sleep(0.1)								# sleep 100 msec
-            if self.button.is_pressed:
-                print("Button is pressed")
+
         # because of threading make sure no thread
         # changes value until we get them
         # and reset them
@@ -78,12 +77,17 @@ class RotaryRead:
                     self.rotateValue = 0
                 if self.rotateValue > 100:					# limit volume to 0...100
                     self.rotateValue = 100
-                print(NewCounter, self.rotateValue) 			# some test print
+                # print(NewCounter, self.rotateValue) 			# some test print
 
     def runDial(self):
         rotaryThread = threading.Thread(target=self.rotaryRead)
         rotaryThread.start()
 
 
-# start main demo function
-RotaryRead().runDial()
+rotaryReadInstance = RotaryRead().runDial()
+
+while True:
+    sleep(0.1)
+    print(rotaryReadInstance.rotateValue)
+    if rotaryReadInstance.button.is_pressed:
+        print("Button is pressed")
