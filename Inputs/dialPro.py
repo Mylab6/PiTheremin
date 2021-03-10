@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 import threading
 from time import sleep
+from gpiozero import Button
 
 # GPIO Ports
 Enc_A = 20  				# Encoder input A: input GPIO 4
@@ -10,7 +11,7 @@ Enc_B = 26  			        # Encoder input B: input GPIO 14
 Rotary_counter = 0  			# Start counting from 0
 Current_A = 1					# Assume that rotary switch is not
 Current_B = 1					# moving while we init software
-
+button = Button(19)
 LockRotary = threading.Lock()		# create lock for rotary switch
 
 
@@ -68,7 +69,8 @@ def main():
 
     while True:								# start test
         sleep(0.1)								# sleep 100 msec
-
+        if button.is_pressed:
+            print("Button is pressed")
         # because of threading make sure no thread
         # changes value until we get them
         # and reset them
