@@ -73,10 +73,10 @@ class RotaryRead:
                 # Decrease or increase volume
                 self.rotateValue = self.rotateValue + \
                     NewCounter*abs(NewCounter)
-                if self.rotateValue < 0:						# limit volume to 0...100
-                    self.rotateValue = 0
-                if self.rotateValue > 100:					# limit volume to 0...100
-                    self.rotateValue = 100
+                if self.rotateValue < -50:						# limit volume to 0...100
+                    self.rotateValue = -50
+                if self.rotateValue > 50:					# limit volume to 0...100
+                    self.rotateValue = 50
                 # print(NewCounter, self.rotateValue) 			# some test print
 
     def runDial(self):
@@ -84,11 +84,6 @@ class RotaryRead:
         rotaryThread.start()
 
 
+# If you need to use this in another class ,
 rotaryReadInstance = RotaryRead()
 rotaryReadInstance.runDial()
-
-while True:
-    sleep(0.1)
-    print(rotaryReadInstance.rotateValue)
-    if rotaryReadInstance.button.is_pressed:
-        print("Button is pressed")

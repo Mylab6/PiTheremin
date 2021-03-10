@@ -4,6 +4,8 @@ from mido.ports import BaseOutput
 from mido import MidiFile
 from rtmidi.midiutil import open_midioutput
 from rtmidi.midiutil import open_midiinput
+from Inputs.dialPro import RotaryRead
+
 
 import os
 import mido
@@ -36,12 +38,18 @@ class BasicMidiOut:
 
 class TestMidi(BasicMidiOut):
     lastNote = False
-    baseNote = 58
+    orignalNote = 58
     noteSpeed = 0
+
+    @property
+    def baseNote(self):
+        self.orignalNote + self.rotaryReadInstance.rotateValue
 
     def __init__(self):
         self.screen = BasicScreenControl()
         self.MidiInClass = BasicMidiIn()
+        self.rotaryReadInstance = RotaryRead()
+        self.rotaryReadInstance.runDial()
 
         super().__init__()
 
@@ -54,7 +62,7 @@ class TestMidi(BasicMidiOut):
 
                 "Current Note " +
                 str(self.lastNote),  "Note Speed: " +
-                str(self.noteSpeed)
+                str(self.noteSpeed), 'Base Note :' + self.baseNote
             )
 
         # while True:
