@@ -73,10 +73,10 @@ class RotaryRead:
                 # Decrease or increase volume
                 self.rotateValue = self.rotateValue + \
                     NewCounter*abs(NewCounter)
-                if self.rotateValue < -50:						# limit volume to 0...100
-                    self.rotateValue = -50
-                if self.rotateValue > 50:					# limit volume to 0...100
-                    self.rotateValue = 50
+                if self.rotateValue < -20:						# limit volume to 0...100
+                    self.rotateValue = -20
+                if self.rotateValue > 20:					# limit volume to 0...100
+                    self.rotateValue = 20
                 # print(NewCounter, self.rotateValue) 			# some test print
 
     def runDial(self):
