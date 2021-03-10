@@ -32,9 +32,15 @@ class BasicMidiOut:
         self.midiout, self.port_name = open_midioutput(midiPort)
         print('On port name ', self.port_name)
 
-    def sendMidi(self, note, velocity=112, command=0x90):
+    def sendMidi(self, note, velocity, command):
         self.midiout.send_message(
             [command, note, velocity])
+
+    def sendNoteOn(self, note, velocity=112):
+        self.sendMidi(note, velocity, 0x90)
+
+    def sendNoteOff(self, note, velocity=112):
+        self.sendMidi(note, velocity, 0x80)
 
 
 class TestMidi(BasicMidiOut):
@@ -74,15 +80,15 @@ class TestMidi(BasicMidiOut):
         self.MidiInClass.checkForMidiMssg()
 
         if(self.lastNote):
-            pass
+            self.sendNoteOff(self.lastNote)
 
         # time.sleep(.31)
         self.lastNote = min(
             75,  self.baseNote + self.tfReader.currentDist / 4)
 
         if(speed > 60):
-            self.sendMidi(
-                self.lastNote, 100, 0x90)
+            self.sendNoteOn(
+                self.lastNote)
 
         # time.sleep(1)
     def runScreen(self):
