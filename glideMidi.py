@@ -62,7 +62,7 @@ class TestMidi(BasicMidiOut):
 
                 "Current Note " +
                 str(self.lastNote),  "Note Speed: " +
-                str(self.noteSpeed), 'Base Note :' + self.baseNote
+                str(self.noteSpeed), 'Base Note :' + str(self.baseNote)
             )
 
         # while True:
