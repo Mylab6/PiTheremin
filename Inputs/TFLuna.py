@@ -78,6 +78,8 @@ class TFLuna():
             time.sleep(.01)
             if(self.speed > 60):
                 self.SendNote(self.speed)
+                time.sleep(0.2)
+
                 self.speed = 0
 
     def runTF(self):
