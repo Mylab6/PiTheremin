@@ -76,7 +76,9 @@ class TFLuna():
             except Exception as id:
                 print(str(id))
             time.sleep(.01)
-            self.SendNote(self.speed)
+            if(self.speed > 60):
+                self.SendNote(self.speed)
+                self.speed = 0
 
     def runTF(self):
         tfThread = threading.Thread(target=self.StartDistLoop)
