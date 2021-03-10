@@ -19,11 +19,9 @@ class RotaryRead:
     def init(self):
         GPIO.setwarnings(True)
         GPIO.setmode(GPIO.BCM)					# Use BCM mode
-    # define the Encoder switch inputs
         GPIO.setup(self.Enc_A, GPIO.IN)
         GPIO.setup(self.Enc_B, GPIO.IN)
-    # setup callback thread for the A and B encoder
-    # use interrupts for all inputs
+
         GPIO.add_event_detect(self.Enc_A, GPIO.RISING,
                               callback=self.rotary_interrupt) 				# NO bouncetime
         GPIO.add_event_detect(self.Enc_B, GPIO.RISING,
@@ -33,12 +31,9 @@ class RotaryRead:
 
     def rotary_interrupt(self, A_or_B):
         global Rotary_counter, Current_A, Current_B, LockRotary
-    # read both of the switches
         Switch_A = GPIO.input(self.Enc_A)
         Switch_B = GPIO.input(self.Enc_B)
-    # now check if state of A or B has changed
-    # if not that means that bouncing caused it
-    # Same interrupt as before (Bouncing)?
+
         if self.Current_A == Switch_A and self.Current_B == Switch_B:
             return										# ignore interrupt!
 
@@ -90,4 +85,4 @@ class RotaryRead:
 
 
 # start main demo function
-rotaryRead()
+RotaryRead().runDial()
