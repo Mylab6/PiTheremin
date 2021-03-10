@@ -25,7 +25,7 @@ class TFLuna():
     #
     # mini UART serial device
     def __init__(self):
-        self.lastSpeed = 0
+        self.rawSpeed = 0
         self.ser = serial.Serial("/dev/serial0", 115200, timeout=0)
         self.last10Points = []
         self.runTF()
@@ -64,6 +64,7 @@ class TFLuna():
                 # print(distance)
                 self.currentDist = distance
                 if len(self.last10Points) > 9:
+                    self.rawSpeed = speed
                     speed = max(self.last10Points) - \
                         min(self.last10Points) / .1
                     self.last10Points.clear()
