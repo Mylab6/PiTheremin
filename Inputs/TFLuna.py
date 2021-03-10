@@ -72,7 +72,7 @@ class TFLuna():
                         time.sleep(0.1)
 
                         #self.speed = 0
-                print("Dist CM :" + str(self.currentDist))
+                #print("Dist CM :" + str(self.currentDist))
                 self.last10Points.append(distance)
                 self.currentTemp = temperature
                 self.currentStrength = strength
