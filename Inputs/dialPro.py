@@ -30,27 +30,27 @@ class RotaryRead:
         return
 
     def rotary_interrupt(self, A_or_B):
-        global Rotary_counter, Current_A, Current_B, LockRotary
+
         Switch_A = GPIO.input(self.Enc_A)
         Switch_B = GPIO.input(self.Enc_B)
 
         if self.Current_A == Switch_A and self.Current_B == Switch_B:
             return										# ignore interrupt!
 
-        Current_A = Switch_A								# remember new state
-        Current_B = Switch_B								# for next bouncing check
+        self.Current_A = Switch_A								# remember new state
+        self.Current_B = Switch_B								# for next bouncing check
 
         if (Switch_A and Switch_B):						# Both one active? Yes -> end of sequence
             self.LockRotary.acquire()						# get lock
             if A_or_B == self.Enc_B:							# Turning direction depends on
-                Rotary_counter += 1						# which input gave last interrupt
+                self.Rotary_counter += 1						# which input gave last interrupt
             else:										# so depending on direction either
-                Rotary_counter -= 1						# increase or decrease counter
+                self.Rotary_counter -= 1						# increase or decrease counter
             self.LockRotary.release()						# and release lock
         return											# THAT'S IT
 
     def rotaryRead(self):
-        global Rotary_counter, LockRotary
+        #global Rotary_counter, LockRotary
 
         Volume = 0									# Current Volume
         NewCounter = 0								# for faster reading with locks
@@ -66,8 +66,8 @@ class RotaryRead:
         # and reset them
 
             self.LockRotary.acquire()					# get lock for rotary switch
-            NewCounter = Rotary_counter			# get counter value
-            Rotary_counter = 0						# RESET IT TO 0
+            NewCounter = self.Rotary_counter			# get counter value
+            self.Rotary_counter = 0						# RESET IT TO 0
             self.LockRotary.release()					# and release lock
 
             if (NewCounter != 0):					# Counter has CHANGED
