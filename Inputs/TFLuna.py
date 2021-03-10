@@ -68,17 +68,19 @@ class TFLuna():
 
                 self.last10Points.append(distance)
                 if len(self.last10Points) > 9:
-                    print(self.last10Points)
-                    speed = abs(max(self.last10Points) -
-                                min(self.last10Points) / .1)
+                    absSpeed = abs(max(self.last10Points) -
+                                   min(self.last10Points))
+                    speed = absSpeed / .1
+                    print(self.last10Points, ":", absSpeed)
+
                     self.rawSpeed = speed
                     self.last10Points.clear()
                     if(speed > 60):
                         self.SendNote(speed)
                         time.sleep(0.1)
 
-                        #self.speed = 0
-                #print("Dist CM :" + str(self.currentDist))
+                        # self.speed = 0
+                # print("Dist CM :" + str(self.currentDist))
 
                 self.currentTemp = temperature
                 self.currentStrength = strength
