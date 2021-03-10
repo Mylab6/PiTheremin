@@ -20,7 +20,7 @@ class BasicMidiIn:
         self.midiInput, self.port_name = open_midiinput(midiPort)
 
     def checkForMidiMssg(self):
-        print(self.midiInput.get_message())
+        msg = self.midiInput.get_message()
 
 
 class BasicMidiOut:
@@ -43,10 +43,11 @@ class TestMidi(BasicMidiOut):
         super().__init__()
 
     def playNotesLoop(self):
-        self.MidiInClass.checkForMidiMssg()
         self.tfReader = TFLuna()
         baseNote = 50
         while True:
+            self.MidiInClass.checkForMidiMssg()
+
             # middle c
             if(self.lastNote):
                 pass
@@ -60,7 +61,7 @@ class TestMidi(BasicMidiOut):
             self.screen.updateText(
                 "Dist CM :" + str(self.tfReader.currentDist),
 
-                "Current Note " + str(self.lastNote))
+                "Current Note " + str(self.lastNote),  'Speed : ' + self.tfReader.speed)
             # print(self.lastNote)
             time.sleep(1)
 
