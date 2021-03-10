@@ -64,9 +64,10 @@ class TFLuna():
                 # print(distance)
                 self.currentDist = distance
                 if len(self.last10Points) > 9:
-                    self.rawSpeed = speed
+
                     speed = max(self.last10Points) - \
                         min(self.last10Points) / .1
+                    self.rawSpeed = speed
                     self.last10Points.clear()
                     if(speed > 60):
                         self.SendNote(speed)
