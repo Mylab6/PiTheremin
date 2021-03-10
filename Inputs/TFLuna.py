@@ -25,7 +25,9 @@ class TFLuna():
     #
     # mini UART serial device
     def __init__(self):
+        self.speed = 0
         self.ser = serial.Serial("/dev/serial0", 115200, timeout=0)
+        self.last10Points = []
         self.runTF()
     #
     ############################
@@ -61,6 +63,12 @@ class TFLuna():
                 distance, strength, temperature = self.read_tfluna_data()  # read values
                 # print(distance)
                 self.currentDist = distance
+                if len(self.last10Points) > 9:
+                    self.speed = max(self.last10Points) - \
+                        min(self.last10Points) / .1
+                    self.last10Points.clear()
+
+                self.last10Points.append(distance)
                 self.currentTemp = temperature
                 self.currentStrength = strength
                 # print('Distance: {0:2.2f} cm, Strength: {1:2.0f} / 65535 (16-bit), Chip Temperature: {2:2.1f} C'.
