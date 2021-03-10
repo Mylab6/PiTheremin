@@ -10,7 +10,7 @@ class RotaryRead:
     Enc_A = 20  # CLK
     Enc_B = 26  # DT
     button = Button(19)  # SW
-
+    rotateValue = 0
     Rotary_counter = 0  			# Start counting from 0
     Current_A = 1					# Assume that rotary switch is not
     Current_B = 1					# moving while we init software
@@ -52,7 +52,7 @@ class RotaryRead:
     def rotaryRead(self):
         #global Rotary_counter, LockRotary
 
-        Volume = 0									# Current Volume
+        self.rotateValue = 0									# Current Volume
         NewCounter = 0								# for faster reading with locks
 
         self.init()										# Init interrupts, GPIO, ...
@@ -72,12 +72,13 @@ class RotaryRead:
 
             if (NewCounter != 0):					# Counter has CHANGED
                 # Decrease or increase volume
-                Volume = Volume + NewCounter*abs(NewCounter)
-                if Volume < 0:						# limit volume to 0...100
-                    Volume = 0
-                if Volume > 100:					# limit volume to 0...100
-                    Volume = 100
-                print(NewCounter, Volume) 			# some test print
+                self.rotateValue = self.rotateValue + \
+                    NewCounter*abs(NewCounter)
+                if self.rotateValue < 0:						# limit volume to 0...100
+                    self.rotateValue = 0
+                if self.rotateValue > 100:					# limit volume to 0...100
+                    self.rotateValue = 100
+                print(NewCounter, self.rotateValue) 			# some test print
 
     def runDial(self):
         rotaryThread = threading.Thread(target=self.rotaryRead)
