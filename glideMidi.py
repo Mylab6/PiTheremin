@@ -37,6 +37,7 @@ class BasicMidiOut:
 class TestMidi(BasicMidiOut):
     lastNote = False
     baseNote = 50
+    noteSpeed = 0
 
     def __init__(self):
         self.screen = BasicScreenControl()
@@ -51,12 +52,15 @@ class TestMidi(BasicMidiOut):
             self.screen.updateText(
                 "Dist CM :" + str(self.tfReader.currentDist),
 
-                "Current Note " + str(self.lastNote),  'Speed : ' + str(self.tfReader.speed))
+                "Current Note " + str(self.lastNote),  'Last Speed : ' + str(
+                    self.tfReader.rawSpeed), "Note Speed: " + str(self.noteSpeed)
+            )
 
         # while True:
         #    self.SendNote()
 
     def SendNote(self, speed):
+        self.noteSpeed = speed
         self.MidiInClass.checkForMidiMssg()
 
         if(self.lastNote):
