@@ -82,8 +82,3 @@ class RotaryRead:
     def runDial(self):
         rotaryThread = threading.Thread(target=self.rotaryRead)
         rotaryThread.start()
-
-
-# If you need to use this in another class ,
-rotaryReadInstance = RotaryRead()
-rotaryReadInstance.runDial()
