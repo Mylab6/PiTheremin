@@ -11,6 +11,7 @@ dn = os.path.dirname(os.path.realpath(__file__))
 
 midiPath = os.path.join(dn, 'music')
 midis = os.listdir(midiPath)
-print(midis)
+# print(midis)
 music = os.path.join(midiPath, random.choice(midis))
+print('Playing ', music)
 playsound(music)
