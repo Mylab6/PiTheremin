@@ -36,34 +36,37 @@ class BasicMidiOut:
 
 class TestMidi(BasicMidiOut):
     lastNote = False
+    baseNote = 50
 
     def __init__(self):
         self.screen = BasicScreenControl()
         self.MidiInClass = BasicMidiIn()
+
         super().__init__()
 
     def playNotesLoop(self):
         self.tfReader = TFLuna()
-        baseNote = 50
-        while True:
-            self.MidiInClass.checkForMidiMssg()
+        self.tfReader.SendNote = self.SendNote
 
-            # middle c
-            if(self.lastNote):
-                pass
-                # self.sendMidi(self.lastNote, 112, True)
-    # math.ceil(
-            time.sleep(.31)
-            self.lastNote = min(
-                75,  baseNote + self.tfReader.currentDist / 4)
-            self.sendMidi(
-                self.lastNote, 100, 0x90)
-            self.screen.updateText(
-                "Dist CM :" + str(self.tfReader.currentDist),
+        # while True:
+        #    self.SendNote()
 
-                "Current Note " + str(self.lastNote),  'Speed : ' + str(self.tfReader.speed))
-            # print(self.lastNote)
-            time.sleep(1)
+    def SendNote(self):
+        self.MidiInClass.checkForMidiMssg()
+
+        if(self.lastNote):
+            pass
+
+        # time.sleep(.31)
+        self.lastNote = min(
+            75,  self.baseNote + self.tfReader.currentDist / 4)
+        self.sendMidi(
+            self.lastNote, 100, 0x90)
+        self.screen.updateText(
+            "Dist CM :" + str(self.tfReader.currentDist),
+
+            "Current Note " + str(self.lastNote),  'Speed : ' + str(self.tfReader.speed))
+        # time.sleep(1)
 
 
 TestMidi().playNotesLoop()
