@@ -1,8 +1,8 @@
 from RPi import GPIO
 from time import sleep
 
-clk = 17
-dt = 18
+clk = 20
+dt = 26
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)

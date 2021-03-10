@@ -53,7 +53,7 @@ class TestMidi(BasicMidiOut):
                 "Dist CM :" + str(self.tfReader.currentDist),
 
                 "Current Note " +
-                str(self.lastNote),  'Last Speed : ', "Note Speed: " +
+                str(self.lastNote),  "Note Speed: " +
                 str(self.noteSpeed)
             )
 
