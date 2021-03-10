@@ -47,6 +47,11 @@ class TestMidi(BasicMidiOut):
     def playNotesLoop(self):
         self.tfReader = TFLuna()
         self.tfReader.SendNote = self.SendNote
+        while True:
+            self.screen.updateText(
+                "Dist CM :" + str(self.tfReader.currentDist),
+
+                "Current Note " + str(self.lastNote),  'Speed : ' + str(self.tfReader.speed))
 
         # while True:
         #    self.SendNote()
@@ -64,10 +69,7 @@ class TestMidi(BasicMidiOut):
         if(speed > 60):
             self.sendMidi(
                 self.lastNote, 100, 0x90)
-        self.screen.updateText(
-            "Dist CM :" + str(self.tfReader.currentDist),
 
-            "Current Note " + str(self.lastNote),  'Speed : ' + str(self.tfReader.speed))
         # time.sleep(1)
 
 
