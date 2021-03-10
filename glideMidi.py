@@ -6,6 +6,7 @@ from rtmidi.midiutil import open_midioutput
 from rtmidi.midiutil import open_midiinput
 from Inputs.dialPro import RotaryRead
 
+import threading
 
 import os
 import mido
@@ -50,12 +51,12 @@ class TestMidi(BasicMidiOut):
         self.MidiInClass = BasicMidiIn()
         self.rotaryReadInstance = RotaryRead()
         self.rotaryReadInstance.runDial()
-
-        super().__init__()
-
-    def playNotesLoop(self):
         self.tfReader = TFLuna()
         self.tfReader.SendNote = self.SendNote
+        super().__init__()
+
+    def updateScreen(self):
+
         while True:
             self.screen.updateText(
                 "Dist CM :" + str(self.tfReader.currentDist),
@@ -84,6 +85,9 @@ class TestMidi(BasicMidiOut):
                 self.lastNote, 100, 0x90)
 
         # time.sleep(1)
+    def runScreen(self):
+        screenThread = threading.Thread(target=self.updateScreen)
+        screenThread.start()
 
 
-TestMidi().playNotesLoop()
+TestMidi().runScreen()
