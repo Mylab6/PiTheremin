@@ -52,8 +52,9 @@ class TestMidi(BasicMidiOut):
             self.screen.updateText(
                 "Dist CM :" + str(self.tfReader.currentDist),
 
-                "Current Note " + str(self.lastNote),  'Last Speed : ' + str(
-                    self.tfReader.rawSpeed), "Note Speed: " + str(self.noteSpeed)
+                "Current Note " +
+                str(self.lastNote),  'Last Speed : ', "Note Speed: " +
+                str(self.noteSpeed)
             )
 
         # while True:
