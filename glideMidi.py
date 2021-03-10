@@ -43,7 +43,7 @@ class TestMidi(BasicMidiOut):
 
     @property
     def baseNote(self):
-        self.orignalNote + self.rotaryReadInstance.rotateValue
+        return self.orignalNote + self.rotaryReadInstance.rotateValue
 
     def __init__(self):
         self.screen = BasicScreenControl()
