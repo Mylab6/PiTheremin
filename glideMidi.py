@@ -51,7 +51,7 @@ class TestMidi(BasicMidiOut):
         # while True:
         #    self.SendNote()
 
-    def SendNote(self):
+    def SendNote(self, speed):
         self.MidiInClass.checkForMidiMssg()
 
         if(self.lastNote):
@@ -60,8 +60,10 @@ class TestMidi(BasicMidiOut):
         # time.sleep(.31)
         self.lastNote = min(
             75,  self.baseNote + self.tfReader.currentDist / 4)
-        self.sendMidi(
-            self.lastNote, 100, 0x90)
+
+        if(speed > 60):
+            self.sendMidi(
+                self.lastNote, 100, 0x90)
         self.screen.updateText(
             "Dist CM :" + str(self.tfReader.currentDist),
 
