@@ -64,10 +64,15 @@ class TFLuna():
                 # print(distance)
                 self.currentDist = distance
                 if len(self.last10Points) > 9:
-                    self.speed = max(self.last10Points) - \
+                    speed = max(self.last10Points) - \
                         min(self.last10Points) / .1
                     self.last10Points.clear()
+                    if(self.speed > 60):
+                        self.SendNote(speed)
+                        time.sleep(0.1)
 
+                        #self.speed = 0
+                print("Dist CM :" + str(self.currentDist))
                 self.last10Points.append(distance)
                 self.currentTemp = temperature
                 self.currentStrength = strength
@@ -76,11 +81,6 @@ class TFLuna():
             except Exception as id:
                 print(str(id))
             time.sleep(.01)
-            if(self.speed > 60):
-                self.SendNote(self.speed)
-                time.sleep(0.1)
-
-                self.speed = 0
 
     def runTF(self):
         tfThread = threading.Thread(target=self.StartDistLoop)
