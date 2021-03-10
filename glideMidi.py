@@ -36,7 +36,7 @@ class BasicMidiOut:
 
 class TestMidi(BasicMidiOut):
     lastNote = False
-    baseNote = 50
+    baseNote = 58
     noteSpeed = 0
 
     def __init__(self):
