@@ -64,6 +64,7 @@ class TestMidi(BasicMidiOut):
     def updateScreen(self):
 
         while True:
+            time.sleep(.5)
             self.screen.updateText(
                 "Dist CM :" + str(self.tfReader.currentDist),
 
