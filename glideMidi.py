@@ -5,6 +5,7 @@ from mido import MidiFile
 from rtmidi.midiutil import open_midioutput
 from rtmidi.midiutil import open_midiinput
 from Inputs.dialPro import RotaryRead
+import subprocess
 
 import threading
 
@@ -59,18 +60,25 @@ class TestMidi(BasicMidiOut):
         self.rotaryReadInstance.runDial()
         self.tfReader = TFLuna()
         self.tfReader.SendNote = self.SendNote
+        #self.IP = self.getIP()
         super().__init__()
+
+    def getIP(self):
+        cmd = "hostname -I | cut -d\' \' -f1"
+        IP = subprocess.check_output(cmd, shell=True)
+        return IP
 
     def updateScreen(self):
 
         while True:
-            time.sleep(.5)
+            time.sleep(.35)
             self.screen.updateText(
                 "Dist CM :" + str(self.tfReader.currentDist),
 
                 "Current Note " +
                 str(self.lastNote),  "Note Speed: " +
-                str(self.noteSpeed), 'Base Note :' + str(self.baseNote)
+                str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
+                self.getIP()
             )
 
         # while True:
