@@ -2,14 +2,12 @@
 import RPi.GPIO as GPIO
 import threading
 from time import sleep
-from gpiozero import Button
 
 
 class RotaryRead:
     # GPIO Ports
     Enc_A = 20  # CLK
     Enc_B = 26  # DT
-    button = Button(19)  # SW
     rotateValue = 0
     Rotary_counter = 0  			# Start counting from 0
     Current_A = 1					# Assume that rotary switch is not
