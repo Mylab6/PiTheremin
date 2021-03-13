@@ -27,7 +27,7 @@ class BasicScreenControl:
     DC = 23
     SPI_PORT = 0
     SPI_DEVICE = 0
-    fontSize = 12
+    fontSize = 15
     disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
     def __init__(self):
