@@ -49,7 +49,6 @@ class TestMidi(BasicMidiOut):
     lastNote = False
     orignalNote = 58
     noteSpeed = 0
-    button = Button(19)
 
     @property
     def baseNote(self):
@@ -64,6 +63,7 @@ class TestMidi(BasicMidiOut):
         self.rotaryReadInstance.runDial()
         self.tfReader = TFLuna()
         self.tfReader.SendNote = self.SendNote
+        self.button = Button(19)
         #self.IP = self.getIP()
         super().__init__()
 
