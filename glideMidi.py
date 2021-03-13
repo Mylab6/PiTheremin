@@ -16,6 +16,7 @@ import random
 from Inputs.TFLuna import TFLuna
 
 import math
+from gpiozero import Button
 
 
 class BasicMidiIn:
@@ -48,6 +49,7 @@ class TestMidi(BasicMidiOut):
     lastNote = False
     orignalNote = 58
     noteSpeed = 0
+    button = Button(4)
 
     @property
     def baseNote(self):
@@ -74,13 +76,17 @@ class TestMidi(BasicMidiOut):
 
         while True:
             time.sleep(.35)
-            self.screen.updateText(
 
-                "Current Note " +
-                str(self.lastNote),  "Note Speed: " +
-                str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
-                self.getIP()
-            )
+            if self.button.is_pressed:
+                self.screen.updateText("Button ON ")
+            else:
+                self.screen.updateText(
+
+                    "Current Note " +
+                    str(self.lastNote),  "Note Speed: " +
+                    str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
+                    self.getIP()
+                )
 
         # while True:
         #    self.SendNote()

@@ -1,4 +1,5 @@
 # https://github.com/adafruit/Adafruit_Python_SSD1306
+import threading
 import subprocess
 import time
 
@@ -8,14 +9,13 @@ import os
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-from gpiozero import Button
-import threading
+
 
 # https://www.raspberrypi-spy.co.uk/2018/04/i2c-oled-display-module-with-raspberry-pi/
 
 
 class BasicScreenControl:
-    button = Button(4)
+
     # Can render about 13 letters safely per line
     # 4 lines
     currentTexts = ["Awaiting Input "]
@@ -81,8 +81,6 @@ class BasicScreenControl:
     def drawnScreen(self):
         self.i = self.i+1
 
-        if self.button.is_pressed:
-            print("Button is pressed")
         self.draw.rectangle((0, 0, self.width, self.height), outline=0, fill=0)
 
         cmd = "hostname -I | cut -d\' \' -f1"
