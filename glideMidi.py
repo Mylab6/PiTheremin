@@ -56,8 +56,7 @@ class TestMidi(BasicMidiOut):
 
     def __init__(self):
         self.screen = BasicScreenControl()
-        time.sleep(5)
-        self.screen.updateText(self.getIP())
+
         self.MidiInClass = BasicMidiIn()
         self.rotaryReadInstance = RotaryRead()
         self.rotaryReadInstance.runDial()
@@ -66,11 +65,6 @@ class TestMidi(BasicMidiOut):
         self.button = Button(19)
         #self.IP = self.getIP()
         super().__init__()
-
-    def getIP(self):
-        cmd = "hostname -I | cut -d\' \' -f1"
-        IP = subprocess.check_output(cmd, shell=True)
-        return IP
 
     def updateScreen(self):
 
@@ -85,7 +79,7 @@ class TestMidi(BasicMidiOut):
                     "Current Note " +
                     str(self.lastNote),  "Note Speed: " +
                     str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
-                    self.getIP()
+                    self.screen.getIP()
                 )
 
         # while True:

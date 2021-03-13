@@ -58,9 +58,16 @@ class BasicScreenControl:
        # print(self.font)
         self.i = 0
         self.runScreen()
+        time.sleep(5)
+        self.updateText(self.getIP())
 
     def updateText(self, *texts):
         self.currentTexts = texts
+
+    def getIP(self):
+        cmd = "hostname -I | cut -d\' \' -f1"
+        IP = subprocess.check_output(cmd, shell=True)
+        return IP
 
     def runScreen(self):
         screenThread = threading.Thread(target=self.runScreenInternal)
