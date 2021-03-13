@@ -36,6 +36,9 @@ class TFLuna():
     #
     currentDist = 0
 
+    def SendNote(self, speed):
+        print('Send note function not in use ')
+
     def read_tfluna_data(self):
         while True:
             counter = self.ser.in_waiting  # count the number of bytes of the serial port
