@@ -55,6 +55,7 @@ class TestMidi(BasicMidiOut):
 
     def __init__(self):
         self.screen = BasicScreenControl()
+        time.sleep(5)
         self.screen.updateText(self.getIP())
         self.MidiInClass = BasicMidiIn()
         self.rotaryReadInstance = RotaryRead()
