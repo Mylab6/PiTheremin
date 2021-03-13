@@ -49,7 +49,7 @@ class TestMidi(BasicMidiOut):
     lastNote = False
     orignalNote = 58
     noteSpeed = 0
-    button = Button(4)
+    button = Button(19)
 
     @property
     def baseNote(self):
