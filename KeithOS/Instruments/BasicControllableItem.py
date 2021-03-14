@@ -37,7 +37,7 @@ class ControllableMidiItem(BasicControllableItem):
             [command, note, velocity])
 
     def sendNoteOn(self, note, velocity=112):
-        print('Send MIDI ', note)
+        print('Send MIDI ',  velocity,  note)
         self.sendMidi(note, velocity, 0x90)
 
     def sendNoteOff(self, note, velocity=112):
