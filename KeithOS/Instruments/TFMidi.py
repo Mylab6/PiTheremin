@@ -28,7 +28,7 @@ class TFMidi(ControllableMidiItem):
 
     def updateScreen(self):
         exitInt = 0 
-        while True:
+        while self.runMe:
             
             time.sleep(.35)
 
@@ -36,8 +36,9 @@ class TFMidi(ControllableMidiItem):
                 exitInt = exitInt + 1 
                 self.screen.updateText("Hold For Exit" , str(exitInt) )
                 if(exitInt > 30):
+                    self.runMe = False
                     self.parentOS.inProgram = False
-                    break
+                    
             else:
 
                 if( exitInt > 1):
@@ -71,6 +72,7 @@ class TFMidi(ControllableMidiItem):
 
         # time.sleep(1)
     def runScreen(self):
+        self.runMe = True 
         self.screenThread = threading.Thread(target=self.updateScreen)
         self.screenThread.start()
 
