@@ -1,5 +1,5 @@
 
-from BasicControllableItem import ControllableMidiItem
+from KeithOS.Instruments.BasicControllableItem import ControllableMidiItem
 import time
 import threading
 
