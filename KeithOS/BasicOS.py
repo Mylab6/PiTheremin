@@ -39,13 +39,15 @@ class BasicOS:
         screenThread.start()
 
     def basicOSscreen(self):
-        if self.inProgram:
-            return
-        self.screen.updateText(
-            "Keith Midi OS", self.screen.getIP(), 'Click To start ')
-        if self.button19.is_pressed:
-            self.inProgram = True
-            TFMidi(self.screen, self.button19,
+        
+        while True: 
+            if self.inProgram:
+                return
+            self.screen.updateText(
+                "Keith Midi OS", self.screen.getIP(), 'Click To start ')
+            if self.button19.is_pressed:
+                self.inProgram = True
+                TFMidi(self.screen, self.button19,
                      self.rotaryReadInstance).runScreen()
 
 
