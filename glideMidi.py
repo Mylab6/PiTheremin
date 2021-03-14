@@ -31,11 +31,13 @@ class BasicMidiIn:
 
 class ControllableMidiItem(BasicControllableItem):
 
-    def __init__(self):
+    def __init__(self, screen, button19,
+                 rotaryReadInstance):
         midiPort = 1
         self.midiout, self.port_name = open_midioutput(midiPort)
         print('On port name ', self.port_name)
-        super().__init__()
+        super().__init__(screen, button19,
+                         rotaryReadInstance)
 
     def sendMidi(self, note, velocity, command):
         self.midiout.send_message(
@@ -57,10 +59,12 @@ class TestMidi(ControllableMidiItem):
     def baseNote(self):
         return self.orignalNote + self.rotaryReadInstance.rotateValue
 
-    def __init__(self):
+    def __init__(self, screen, button19,
+                 rotaryReadInstance):
         # self.legacySetUp()
         # self.IP = self.getIP()
-        super().__init__()
+        super().__init__(screen, button19,
+                         rotaryReadInstance)
         self.tfReader.SendNote = self.SendNote
 
     def legacySetUp(self):
