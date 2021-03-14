@@ -41,6 +41,7 @@ class BasicOS:
     def basicOSscreen(self):
         
         while True: 
+            time.sleep(.5)
             if self.inProgram:
                 return
             self.screen.updateText(
