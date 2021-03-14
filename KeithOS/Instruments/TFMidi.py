@@ -1,5 +1,5 @@
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
-from .BasicControllableItem import ControllableMidiItem
+from BasicControllableItem import ControllableMidiItem
 
 
 import threading
