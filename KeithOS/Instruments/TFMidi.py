@@ -1,8 +1,10 @@
-import time
-import threading
-from BasicControllableItem import ControllableMidiItem
 import sys
 sys.path.append('..')
+from Instruments.BasicControllableItem import ControllableMidiItem
+import time
+import threading
+
+
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 
 
