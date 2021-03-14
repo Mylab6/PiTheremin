@@ -1,18 +1,19 @@
 from KeithOS.BasicScreenControl import BasicScreenControl
+from KeithOS.Inputs.RotaryRead import RotaryRead
+
 import sys
 #sys.path.append('..')
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 
-from Inputs.RotaryRead import RotaryRead
 import subprocess
-from Instruments.TFMidi import TFMidi
+from KeithOS.Instruments.TFMidi import TFMidi
 import threading
 
 import os
 import mido
 import time
 import random
-from Inputs.TFLuna import TFLuna
+from KeithOS.Inputs.TFLuna import TFLuna
 
 import math
 from gpiozero import Button
