@@ -1,4 +1,5 @@
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
+from KeithOS.BasicControllableItem import BasicControllableItem
 from BasicScreenControl import BasicScreenControl
 from mido.ports import BaseOutput
 from mido import MidiFile
@@ -28,11 +29,13 @@ class BasicMidiIn:
         msg = self.midiInput.get_message()
 
 
-class BasicMidiOut:
+class ControllableMidiItem(BasicControllableItem):
 
-    def __init__(self, midiPort=1):
+    def __init__(self):
+        midiPort = 1
         self.midiout, self.port_name = open_midioutput(midiPort)
         print('On port name ', self.port_name)
+        super().__init__()
 
     def sendMidi(self, note, velocity, command):
         self.midiout.send_message(
@@ -45,7 +48,7 @@ class BasicMidiOut:
         self.sendMidi(note, velocity, 0x80)
 
 
-class TestMidi(BasicMidiOut):
+class TestMidi(ControllableMidiItem):
     lastNote = False
     orignalNote = 58
     noteSpeed = 0
@@ -55,6 +58,12 @@ class TestMidi(BasicMidiOut):
         return self.orignalNote + self.rotaryReadInstance.rotateValue
 
     def __init__(self):
+        # self.legacySetUp()
+        # self.IP = self.getIP()
+        super().__init__()
+        self.tfReader.SendNote = self.SendNote
+
+    def legacySetUp(self):
         self.screen = BasicScreenControl()
 
         self.MidiInClass = BasicMidiIn()
@@ -63,8 +72,6 @@ class TestMidi(BasicMidiOut):
         self.tfReader = TFLuna()
         self.tfReader.SendNote = self.SendNote
         self.button = Button(19)
-        #self.IP = self.getIP()
-        super().__init__()
 
     def updateScreen(self):
 
@@ -106,4 +113,4 @@ class TestMidi(BasicMidiOut):
         screenThread.start()
 
 
-TestMidi().runScreen()
+# TestMidi().runScreen()

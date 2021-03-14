@@ -60,6 +60,7 @@ class BasicScreenControl:
         self.runScreen()
         time.sleep(5)
         self.updateText(self.getIP())
+        time.sleep(3)
 
     def updateText(self, *texts):
         self.currentTexts = texts
