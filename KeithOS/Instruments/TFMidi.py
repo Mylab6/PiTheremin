@@ -1,5 +1,5 @@
 
-from BasicControllableItem import ControllableMidiItem
+import BasicControllableItem
 import time
 import threading
 
@@ -7,7 +7,7 @@ import threading
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 
 
-class TFMidi(ControllableMidiItem):
+class TFMidi(BasicControllableItem.ControllableMidiItem):
     lastNote = False
     orignalNote = 58
     noteSpeed = 0
