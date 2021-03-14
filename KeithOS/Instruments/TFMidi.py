@@ -47,7 +47,7 @@ class TFMidi(ControllableMidiItem):
     def SendNote(self, speed):
         
         self.noteSpeed = speed
-        self.MidiInClass.checkForMidiMssg()
+       # self.MidiInClass.checkForMidiMssg()
 
         if(self.lastNote):
             self.sendNoteOff(self.lastNote)
