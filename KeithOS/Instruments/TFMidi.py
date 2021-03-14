@@ -1,10 +1,9 @@
-# https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
-from BasicControllableItem import ControllableMidiItem
-
-
-import threading
-
 import time
+import threading
+from BasicControllableItem import ControllableMidiItem
+import sys
+sys.path.append('..')
+# https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 
 
 class TFMidi(ControllableMidiItem):
