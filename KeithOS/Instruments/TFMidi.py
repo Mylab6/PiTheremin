@@ -2,7 +2,8 @@
 from KeithOS.Instruments.BasicControllableItem import ControllableMidiItem
 import time
 import threading
-
+import os 
+import sys
 
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 
@@ -39,6 +40,7 @@ class TFMidi(ControllableMidiItem):
                     self.runMe = False
                    
                     self.screen.updateText("Exiting ?" )
+                    os.execl(sys.executable, '"{}"'.format(sys.executable), *sys.argv)
                     self.killCommand()
                     
             else:
