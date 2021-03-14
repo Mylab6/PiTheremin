@@ -74,7 +74,7 @@ class ControllableMidiItem(BasicControllableItem):
                 if( exitInt > 1):
                      exitInt = exitInt -1 
                 self.screen.updateText(
-                  self.textArr
+                  *self.textArr
                 )
 
 
