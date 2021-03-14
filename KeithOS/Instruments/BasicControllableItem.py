@@ -32,10 +32,12 @@ class ControllableMidiItem(BasicControllableItem):
                          rotaryReadInstance, tfInstance)
 
     def sendMidi(self, note, velocity, command):
+
         self.midiout.send_message(
             [command, note, velocity])
 
     def sendNoteOn(self, note, velocity=112):
+        print('Send MIDI ', note)
         self.sendMidi(note, velocity, 0x90)
 
     def sendNoteOff(self, note, velocity=112):
