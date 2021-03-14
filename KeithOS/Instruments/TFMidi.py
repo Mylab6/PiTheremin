@@ -17,9 +17,10 @@ class TFMidi(ControllableMidiItem):
         return self.orignalNote + self.rotaryReadInstance.rotateValue
 
     def __init__(self, screen, button19,
-                 rotaryReadInstance, tfInstance, midiout ) :
+                 rotaryReadInstance, tfInstance, midiout, parentOS ) :
         # self.legacySetUp()
         # self.IP = self.getIP()
+        self.parentOS = parentOS
         tfInstance.SendNote = self.SendNote
 
         super().__init__(screen, button19,
@@ -34,7 +35,13 @@ class TFMidi(ControllableMidiItem):
             if self.button.is_pressed:
                 exitInt = exitInt + 1 
                 self.screen.updateText("Hold For Exit" , str(exitInt) )
+                if(exitInt > 30):
+                    self.parentOS.inProgram = False
+                    break
             else:
+
+                if( exitInt > 1):
+                     exitInt = exitInt -1 
                 self.screen.updateText(
 
                     "Current Note " +

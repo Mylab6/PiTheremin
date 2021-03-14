@@ -53,7 +53,7 @@ class BasicOS:
             if self.button19.is_pressed:
                 self.inProgram = True
                 TFMidi(self.screen, self.button19,
-                     self.rotaryReadInstance,self.tfReader, self.midiout).runScreen()
+                     self.rotaryReadInstance,self.tfReader, self.midiout, self).runScreen()
 
 
 #BasicOS().runOS()
