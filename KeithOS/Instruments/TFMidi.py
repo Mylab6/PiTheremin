@@ -26,12 +26,14 @@ class TFMidi(ControllableMidiItem):
                          rotaryReadInstance, tfInstance, midiout)
 
     def updateScreen(self):
-
+        exitInt = 0 
         while True:
+            
             time.sleep(.35)
 
             if self.button.is_pressed:
-                self.screen.updateText("Button ON ")
+                exitInt = exitInt + 1 
+                self.screen.updateText("Hold For Exit" , str(exitInt) )
             else:
                 self.screen.updateText(
 
@@ -62,8 +64,8 @@ class TFMidi(ControllableMidiItem):
 
         # time.sleep(1)
     def runScreen(self):
-        screenThread = threading.Thread(target=self.updateScreen)
-        screenThread.start()
+        self.screenThread = threading.Thread(target=self.updateScreen)
+        self.screenThread.start()
 
 
 # TestMidi().runScreen()
