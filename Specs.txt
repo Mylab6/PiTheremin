@@ -1,2 +1,5 @@
 TF Luna Lidar : https://www.amazon.com/gp/product/B08F55QTWP/
-Digial Rotary Dial 
+Digital Rotary Dial : https://www.amazon.com/gp/product/B06XQTHDRR 
+= Button is attached to GIPO 19 
+OLDED Display : https://www.amazon.com/gp/product/B07WPCPM5H
+Raspberrypi WH => You need to set it to midi to get this to work 
