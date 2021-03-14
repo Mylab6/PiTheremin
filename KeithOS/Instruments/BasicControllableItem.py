@@ -53,10 +53,10 @@ class ControllableMidiItem(BasicControllableItem):
         self.textArr = "No Implimentation"
 
     def updateScreen(self):
-        self.createTextArr()
+       
         exitInt = 0 
         while True:
-            
+            self.createTextArr()     
             time.sleep(.35)
 
             if self.button.is_pressed:
