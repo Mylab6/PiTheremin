@@ -45,12 +45,12 @@ class ControllableMidiItem(BasicControllableItem):
     def sendNoteOff(self, note, velocity=112):
         self.sendMidi(note, velocity, 0x80)
     def runScreen(self):
-        self.textArr = ["Waiting For implimentation"]
+        self.textArr = "Waiting For implimentation"
         
         self.screenThread = threading.Thread(target=self.updateScreen)
         self.screenThread.start()
     def createTextArr(self):
-        self.textArr = ["No Implimentation"]
+        self.textArr = "No Implimentation"
 
     def updateScreen(self):
         self.createTextArr()

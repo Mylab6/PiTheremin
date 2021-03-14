@@ -27,10 +27,7 @@ class TFMidi(ControllableMidiItem):
 
 
     def createTextArr(self):
-         self.textArr =  ["Current Note " +
-                    str(self.lastNote),  "Note Speed: " +
-                    str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
-                    self.screen.getIP()]
+         self.textArr =  "Current Note " + str(self.lastNote),  "Note Speed: " +      str(self.noteSpeed), 'Base Note :' + str(self.baseNote), self.screen.getIP()
 
 
     def SendNote(self, speed):
