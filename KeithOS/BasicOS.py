@@ -1,23 +1,19 @@
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
-from BasicScreenControl import BasicScreenControl
-from mido.ports import BaseOutput
-from mido import MidiFile
-from rtmidi.midiutil import open_midioutput
-from rtmidi.midiutil import open_midiinput
-from Inputs.dialPro import RotaryRead
+from .BasicScreenControl import BasicScreenControl
+
+from .Inputs.RotaryRead import RotaryRead
 import subprocess
-from glideMidi import TestMidi
+from .Instruments.TFMidi import TFMidi
 import threading
 
 import os
 import mido
 import time
 import random
-from Inputs.TFLuna import TFLuna
+from .Inputs.TFLuna import TFLuna
 
 import math
 from gpiozero import Button
-from KeithOS.BasicControllableItem import BasicControllableItem
 
 
 class BasicOS:
