@@ -1,9 +1,9 @@
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
-from .BasicScreenControl import BasicScreenControl
+from BasicScreenControl import BasicScreenControl
 
-from .Inputs.RotaryRead import RotaryRead
+from Inputs.RotaryRead import RotaryRead
 import subprocess
-from .Instruments.TFMidi import TFMidi
+from Instruments.TFMidi import TFMidi
 import threading
 
 import os
