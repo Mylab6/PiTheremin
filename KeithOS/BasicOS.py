@@ -21,6 +21,7 @@ from gpiozero import Button
 
 class BasicOS:
     def __init__(self):
+        print('Start Midi OS ')
         self.inProgram = False
         self.screen = BasicScreenControl()
         self.button19 = Button(19)
