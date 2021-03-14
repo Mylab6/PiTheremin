@@ -33,7 +33,7 @@ class BasicOS:
             self.tfReader = False
 
     def runOS(self):
-        screenThread = threading.Thread(target=self.updateScreen)
+        screenThread = threading.Thread(target=self.basicOSscreen)
         screenThread.start()
 
     def basicOSscreen(self):
@@ -45,3 +45,6 @@ class BasicOS:
             self.inProgram = True
             TestMidi(self.screen, self.button19,
                      self.rotaryReadInstance).runScreen()
+
+
+BasicOS().runOS()
