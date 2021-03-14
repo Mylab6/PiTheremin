@@ -27,10 +27,12 @@ class BasicOS:
         self.button19 = Button(19)
         self.rotaryReadInstance = RotaryRead()
         self.rotaryReadInstance.runDial()
+
         try:
             self.tfReader = TFLuna()
         except print(0):
             self.tfReader = False
+        self.runOS()
 
     def runOS(self):
         screenThread = threading.Thread(target=self.basicOSscreen)
@@ -47,4 +49,4 @@ class BasicOS:
                      self.rotaryReadInstance).runScreen()
 
 
-BasicOS().runOS()
+#BasicOS().runOS()
