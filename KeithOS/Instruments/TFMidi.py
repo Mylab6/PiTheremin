@@ -11,51 +11,21 @@ class TFMidi(ControllableMidiItem):
     lastNote = False
     orignalNote = 58
     noteSpeed = 0
-
     @property
     def baseNote(self):
         return self.orignalNote + self.rotaryReadInstance.rotateValue
 
     def __init__(self, screen, button19,
-                 rotaryReadInstance, tfInstance, midiout, killCommand ) :
+                 rotaryReadInstance, tfInstance, midiout ) :
         # self.legacySetUp()
         # self.IP = self.getIP()
-        self.killCommand = killCommand
+        
         tfInstance.SendNote = self.SendNote
 
         super().__init__(screen, button19,
                          rotaryReadInstance, tfInstance, midiout)
 
-    def updateScreen(self):
-        exitInt = 0 
-        while True:
-            
-            time.sleep(.35)
 
-            if self.button.is_pressed:
-                exitInt = exitInt + 1 
-                self.screen.updateText("Hold For Exit" , str(exitInt) )
-                if(exitInt > 10):
-                   
-                   
-                    self.screen.updateText("Exiting ?" )
-                    os.system('sudo reboot')
-
-                    
-            else:
-
-                if( exitInt > 1):
-                     exitInt = exitInt -1 
-                self.screen.updateText(
-
-                    "Current Note " +
-                    str(self.lastNote),  "Note Speed: " +
-                    str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
-                    self.screen.getIP()
-                )
-
-        # while True:
-        #    self.SendNote()
     def createTextArr(self):
          self.textArr["Current Note " +
                     str(self.lastNote),  "Note Speed: " +
