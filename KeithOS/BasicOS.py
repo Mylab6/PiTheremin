@@ -42,6 +42,8 @@ class BasicOS:
         screenThread = threading.Thread(target=self.basicOSscreen)
         screenThread.start()
 
+    def killCommand(self):
+        self.inProgram = False
     def basicOSscreen(self):
         
         while True: 
@@ -53,7 +55,7 @@ class BasicOS:
             if self.button19.is_pressed:
                 self.inProgram = True
                 TFMidi(self.screen, self.button19,
-                     self.rotaryReadInstance,self.tfReader, self.midiout, self).runScreen()
+                     self.rotaryReadInstance,self.tfReader, self.midiout, self.killCommand).runScreen()
 
 
 #BasicOS().runOS()
