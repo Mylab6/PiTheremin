@@ -20,9 +20,10 @@ class TFMidi(ControllableMidiItem):
                  rotaryReadInstance, tfInstance ) :
         # self.legacySetUp()
         # self.IP = self.getIP()
+        tfInstance.SendNote = self.SendNote
+
         super().__init__(screen, button19,
                          rotaryReadInstance, tfInstance)
-        self.tfReader.SendNote = self.SendNote
 
     def updateScreen(self):
 
@@ -44,6 +45,7 @@ class TFMidi(ControllableMidiItem):
         #    self.SendNote()
 
     def SendNote(self, speed):
+        
         self.noteSpeed = speed
         self.MidiInClass.checkForMidiMssg()
 
