@@ -1,6 +1,5 @@
-import sys
-sys.path.append('..')
-from Instruments.BasicControllableItem import ControllableMidiItem
+
+from BasicControllableItem import ControllableMidiItem
 import time
 import threading
 
