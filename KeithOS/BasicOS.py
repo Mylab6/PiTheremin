@@ -1,7 +1,7 @@
+from KeithOS.BasicScreenControl import BasicScreenControl
 import sys
 #sys.path.append('..')
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
-from BasicScreenControl import BasicScreenControl
 
 from Inputs.RotaryRead import RotaryRead
 import subprocess
