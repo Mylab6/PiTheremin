@@ -24,10 +24,9 @@ class BasicMidiIn:
 class ControllableMidiItem(BasicControllableItem):
 
     def __init__(self, screen, button19,
-                 rotaryReadInstance, tfInstance ):
-        midiPort = 1
-        self.midiout, self.port_name = open_midioutput(midiPort)
-        print('On port name ', self.port_name)
+                 rotaryReadInstance, tfInstance, midiout ):
+        self.midiout = midiout
+
         super().__init__(screen, button19,
                          rotaryReadInstance, tfInstance)
 

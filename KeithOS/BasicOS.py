@@ -1,6 +1,7 @@
 from KeithOS.BasicScreenControl import BasicScreenControl
 from KeithOS.Inputs.RotaryRead import RotaryRead
-
+from rtmidi.midiutil import open_midioutput
+from rtmidi.midiutil import open_midiinput
 import sys
 #sys.path.append('..')
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
@@ -27,6 +28,9 @@ class BasicOS:
         self.button19 = Button(19)
         self.rotaryReadInstance = RotaryRead()
         self.rotaryReadInstance.runDial()
+        midiPort = 1
+        self.midiout, self.port_name = open_midioutput(midiPort)
+        print('On port name ', self.port_name)
 
         try:
             self.tfReader = TFLuna()
@@ -49,7 +53,7 @@ class BasicOS:
             if self.button19.is_pressed:
                 self.inProgram = True
                 TFMidi(self.screen, self.button19,
-                     self.rotaryReadInstance,self.tfReader).runScreen()
+                     self.rotaryReadInstance,self.tfReader, self.midiout).runScreen()
 
 
 #BasicOS().runOS()
