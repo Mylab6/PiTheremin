@@ -3,16 +3,16 @@ import sys
 # https://www.mutopiaproject.org/cgibin/make-table.cgi?collection=bachis&preview=1
 from KeithOS.BasicScreenControl import BasicScreenControl
 
-from Inputs.RotaryRead import RotaryRead
+from KeithOS.Inputs.RotaryRead import RotaryRead
 import subprocess
-from Instruments.TFMidi import TFMidi
+from KeithOS.Instruments.TFMidi import TFMidi
 import threading
 
 import os
 import mido
 import time
 import random
-from .Inputs.TFLuna import TFLuna
+from KeithOS.Inputs.TFLuna import TFLuna
 
 import math
 from gpiozero import Button
@@ -41,7 +41,7 @@ class BasicOS:
             "Keith Midi OS", self.screen.getIP(), 'Click To start ')
         if self.button19.is_pressed:
             self.inProgram = True
-            TestMidi(self.screen, self.button19,
+            TFMidi(self.screen, self.button19,
                      self.rotaryReadInstance).runScreen()
 
 
