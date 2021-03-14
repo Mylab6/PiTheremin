@@ -36,12 +36,12 @@ class TFMidi(ControllableMidiItem):
             if self.button.is_pressed:
                 exitInt = exitInt + 1 
                 self.screen.updateText("Hold For Exit" , str(exitInt) )
-                if(exitInt > 30):
+                if(exitInt > 10):
                     self.runMe = False
                    
                     self.screen.updateText("Exiting ?" )
-                    os.execl(sys.executable, '"{}"'.format(sys.executable), *sys.argv)
-                    self.killCommand()
+                    os.system('sudo reboot')
+
                     
             else:
 
