@@ -5,14 +5,14 @@ from BasicScreenControl import BasicScreenControl
 
 from Inputs.RotaryRead import RotaryRead
 import subprocess
-from KeithOS.Instruments.TFMidi import TFMidi
+from Instruments.TFMidi import TFMidi
 import threading
 
 import os
 import mido
 import time
 import random
-from KeithOS.Inputs.TFLuna import TFLuna
+from Inputs.TFLuna import TFLuna
 
 import math
 from gpiozero import Button
