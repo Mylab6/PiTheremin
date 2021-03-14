@@ -1,5 +1,5 @@
 
-from .BasicControllableItem import ControllableMidiItem
+from ..BasicControllableItem import ControllableMidiItem
 import time
 import threading
 
