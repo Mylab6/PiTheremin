@@ -1,5 +1,8 @@
 from rtmidi.midiutil import open_midioutput
 from rtmidi.midiutil import open_midiinput
+import threading
+import time
+import os 
 
 
 class BasicControllableItem:
@@ -41,3 +44,38 @@ class ControllableMidiItem(BasicControllableItem):
 
     def sendNoteOff(self, note, velocity=112):
         self.sendMidi(note, velocity, 0x80)
+    def runScreen(self):
+        self.textArr = ["Waiting For implimentation"]
+        
+        self.screenThread = threading.Thread(target=self.updateScreen)
+        self.screenThread.start()
+    def createTextArr(self):
+        self.textArr = ["No Implimentation"]
+
+    def updateScreen(self):
+        self.createTextArr()
+        exitInt = 0 
+        while True:
+            
+            time.sleep(.35)
+
+            if self.button.is_pressed:
+                exitInt = exitInt + 1 
+                self.screen.updateText("Hold For Exit" , str(exitInt) )
+                if(exitInt > 10):
+                   
+                   
+                    self.screen.updateText("Exiting ?" )
+                    os.system('sudo reboot')
+
+                    
+            else:
+
+                if( exitInt > 1):
+                     exitInt = exitInt -1 
+                self.screen.updateText(
+                 self.textArr
+                )
+
+
+

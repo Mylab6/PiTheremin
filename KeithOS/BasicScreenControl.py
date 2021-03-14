@@ -58,7 +58,7 @@ class BasicScreenControl:
        # print(self.font)
         self.i = 0
         self.runScreen()
-        time.sleep(1)
+        time.sleep(3)
         self.updateText(self.getIP())
         time.sleep(3)
 

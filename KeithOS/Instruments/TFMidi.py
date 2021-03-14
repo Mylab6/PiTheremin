@@ -1,7 +1,6 @@
 
 from KeithOS.Instruments.BasicControllableItem import ControllableMidiItem
 import time
-import threading
 import os 
 import sys
 
@@ -29,7 +28,7 @@ class TFMidi(ControllableMidiItem):
 
     def updateScreen(self):
         exitInt = 0 
-        while self.runMe:
+        while True:
             
             time.sleep(.35)
 
@@ -37,7 +36,7 @@ class TFMidi(ControllableMidiItem):
                 exitInt = exitInt + 1 
                 self.screen.updateText("Hold For Exit" , str(exitInt) )
                 if(exitInt > 10):
-                    self.runMe = False
+                   
                    
                     self.screen.updateText("Exiting ?" )
                     os.system('sudo reboot')
@@ -57,6 +56,12 @@ class TFMidi(ControllableMidiItem):
 
         # while True:
         #    self.SendNote()
+    def createTextArr(self):
+         self.textArr["Current Note " +
+                    str(self.lastNote),  "Note Speed: " +
+                    str(self.noteSpeed), 'Base Note :' + str(self.baseNote),
+                    self.screen.getIP()]
+
 
     def SendNote(self, speed):
         
@@ -75,11 +80,6 @@ class TFMidi(ControllableMidiItem):
                 self.lastNote)
 
         # time.sleep(1)
-    def runScreen(self):
-        self.runMe = True 
-        self.screenThread = threading.Thread(target=self.updateScreen)
-        self.screenThread.start()
-
 
 # TestMidi().runScreen()
 
