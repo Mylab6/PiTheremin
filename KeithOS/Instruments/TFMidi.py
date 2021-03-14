@@ -17,11 +17,11 @@ class TFMidi(ControllableMidiItem):
         return self.orignalNote + self.rotaryReadInstance.rotateValue
 
     def __init__(self, screen, button19,
-                 rotaryReadInstance):
+                 rotaryReadInstance, tfInstance ) :
         # self.legacySetUp()
         # self.IP = self.getIP()
         super().__init__(screen, button19,
-                         rotaryReadInstance)
+                         rotaryReadInstance, tfInstance)
         self.tfReader.SendNote = self.SendNote
 
     def updateScreen(self):
