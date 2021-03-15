@@ -221,7 +221,7 @@ print("\nGesture Sensor Test Program ...\n")
 paj7620u2=PAJ7620U2()
 
 while True:
-		time.sleep(0.05)
+		time.sleep(0.01)
 		paj7620u2.check_gesture()
 		
 
