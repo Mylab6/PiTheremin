@@ -1,3 +1,4 @@
+#https://github.com/ssh0/dotfiles/blob/master/pyradio/stations.csv
 import time
 import os
 
