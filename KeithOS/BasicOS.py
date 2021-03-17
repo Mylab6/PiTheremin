@@ -21,6 +21,7 @@ from gpiozero import Button
 
 
 class BasicOS:
+    avaliblePrograms = ['Touch Basic', 'Touch Pro', 'Touch 3','Touch 4']
     def __init__(self):
         print('Start Midi OS ')
         self.inProgram = False
@@ -39,7 +40,7 @@ class BasicOS:
         self.runOS()
     @property
     def currentMenuItem(self):
-        return  self.rotaryReadInstance.rotateValue + 20
+        return math.floor((self.rotaryReadInstance.rotateValue + 20) / 10 ) 
     def runOS(self):
         screenThread = threading.Thread(target=self.basicOSscreen)
         screenThread.start()
