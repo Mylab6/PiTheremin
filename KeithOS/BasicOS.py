@@ -21,7 +21,7 @@ from gpiozero import Button
 
 
 class BasicOS:
-    avaliblePrograms = ['Touch Basic', 'Touch Pro', 'Touch 3','Touch 4']
+    avaliblePrograms = ['Touch Basic', 'Touch Pro', 'Touch 3','Touch 4', 'Touch 5']
     def __init__(self):
         print('Start Midi OS ')
         self.inProgram = False
@@ -40,7 +40,12 @@ class BasicOS:
         self.runOS()
     @property
     def currentMenuItem(self):
-        return math.floor((self.rotaryReadInstance.rotateValue + 20) / 10 ) 
+        try:
+              index = math.floor((self.rotaryReadInstance.rotateValue + 20) / 10 )
+              return index
+        except print(0):
+                0
+        #return self.avaliblePrograms[math.floor((self.rotaryReadInstance.rotateValue + 20) / 10 ) ]
     def runOS(self):
         screenThread = threading.Thread(target=self.basicOSscreen)
         screenThread.start()
@@ -53,8 +58,9 @@ class BasicOS:
             time.sleep(.1)
             if self.inProgram:
                 return
+            currentSelectionText =    self.avaliblePrograms[self.currentMenuItem]
             self.screen.updateText(
-                "Keith Midi OS", self.screen.getIP(), 'Click To start ',  str(self.currentMenuItem) )
+                "Keith Midi OS", self.screen.getIP(), 'Click To start ',  currentSelectionText )
             if self.button19.is_pressed:
                 self.inProgram = True
                 TFMidi(self.screen, self.button19,
