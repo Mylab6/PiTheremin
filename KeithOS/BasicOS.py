@@ -37,7 +37,9 @@ class BasicOS:
         except print(0):
             self.tfReader = False
         self.runOS()
-
+    @property
+    def currentMenuItem(self):
+        return  self.rotaryReadInstance.rotateValue + 20
     def runOS(self):
         screenThread = threading.Thread(target=self.basicOSscreen)
         screenThread.start()
@@ -51,7 +53,7 @@ class BasicOS:
             if self.inProgram:
                 return
             self.screen.updateText(
-                "Keith Midi OS", self.screen.getIP(), 'Click To start ')
+                "Keith Midi OS", self.screen.getIP(), 'Click To start ',  str(self.currentMenuItem) )
             if self.button19.is_pressed:
                 self.inProgram = True
                 TFMidi(self.screen, self.button19,
