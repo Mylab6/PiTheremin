@@ -1,2 +1,4 @@
 __pycache__
 offline_notes.txt
+*.whl
+*
