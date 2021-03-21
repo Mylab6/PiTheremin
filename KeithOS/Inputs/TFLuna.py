@@ -27,6 +27,7 @@ class TFLuna():
     def __init__(self):
         self.rawSpeed = 0
         self.ser = serial.Serial("/dev/serial0", 115200, timeout=0)
+        self.set_samp_rate() 
         self.last10Points = []
         self.runTF()
     #
