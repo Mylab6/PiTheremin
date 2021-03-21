@@ -34,6 +34,13 @@ class TFLuna():
     # read ToF data from TF-Luna
     ############################
     #
+    def set_samp_rate(self,samp_rate=100):
+        ##########################
+    # change the sample rate
+        samp_rate_packet = [0x5a,0x06,0x03,samp_rate,00,00] # sample rate byte array
+        self.ser.write(samp_rate_packet) # send sample rate instruction
+        time.sleep(0.1) # wait for change to take effect
+        return
     currentDist = 0
 
     def SendNote(self, speed):
