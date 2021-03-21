@@ -43,9 +43,10 @@ class TFLuna():
         while True:
             print('In dist loop 3')
             counter = self.ser.in_waiting  # count the number of bytes of the serial port
-            print('Counter ', str(counter ) )
+            #print('Counter ', str(counter ) )
             if counter > 8:
                 bytes_serial = self.ser.read(9)  # read 9 bytes
+                print(bytes_serial)
                 self.ser.reset_input_buffer()  # reset buffer
 
                 if bytes_serial[0] == 0x59 and bytes_serial[1] == 0x59:  # check first two bytes
