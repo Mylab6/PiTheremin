@@ -41,7 +41,7 @@ class TFLuna():
 
     def read_tfluna_data(self):
         while True:
-            print('In dist loop 3')
+           # print('In dist loop 3')
             counter = self.ser.in_waiting  # count the number of bytes of the serial port
             #print('Counter ', str(counter ) )
             if counter > 8:
