@@ -58,6 +58,7 @@ class TFLuna():
                     return distance,  strength, temperature
 
     def StartDistLoop(self):
+        print('In dist loop ')
         while True:
             try:
                 if self.ser.isOpen() == False:
