@@ -28,6 +28,7 @@ class TFLuna():
         self.rawSpeed = 0
         self.ser = serial.Serial("/dev/serial0", 115200, timeout=0)
         self.set_samp_rate() 
+        self.get_version()
         self.last10Points = []
         self.runTF()
     #
@@ -43,6 +44,37 @@ class TFLuna():
         time.sleep(0.1) # wait for change to take effect
         return
     currentDist = 0
+
+    def get_version(self):
+    ##########################
+    # get version info
+        info_packet = [0x5a,0x04,0x14,0x00]
+
+        self.ser.write(info_packet)
+        time.sleep(0.1)
+        bytes_to_read = 30
+        t0 = time.time()
+        while (time.time()-t0)<5:
+            counter = self.ser.in_waiting
+            if counter > bytes_to_read:
+                bytes_data = self.ser.read(bytes_to_read)
+                self.ser.reset_input_buffer()
+                if bytes_data[0] == 0x5a:
+                    version = bytes_data[3:-1].decode('utf-8')
+                    print('Version -'+version)
+                    return
+                else:
+                    self.ser.write(info_packet)
+                    time.sleep(0.1)
+
+
+
+
+
+
+
+
+
 
     def SendNote(self, speed):
         print('Send note function not in use ')
