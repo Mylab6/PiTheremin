@@ -59,9 +59,14 @@ class TFLuna():
 
     def StartDistLoop(self):
         while True:
-            if self.ser.isOpen() == False:
-                self.ser.open()  # open serial port if not open
+            try:
+                if self.ser.isOpen() == False:
+                    self.ser.open()  # open serial port if not open
 
+            except Exception as id:
+                print(id)
+                
+            
             try:
                 distance, strength, temperature = self.read_tfluna_data()  # read values
                 # print(distance)
