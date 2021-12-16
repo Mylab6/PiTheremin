@@ -8,3 +8,7 @@ https://github.com/Hecsall/arduino-midi-footswitch/issues/3#issuecomment-9683761
 
 Seems to use the main bluez, which is much more current 
 https://mclarenlabs.com/blog/2019/01/15/korg-microkey-air-37-bluetooth-midi-keyboard-with-raspberry-pi/
+
+
+Maschine driver for Linux
+https://github.com/wrl/maschine.rs
