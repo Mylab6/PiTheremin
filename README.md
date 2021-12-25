@@ -1,5 +1,5 @@
 # PiMidi
-Here's some very basic code to get a theremin like instament working with a Rasberry Pi and a Lidar sensor. 
+Here's some very basic code to get a theremin like instrument working with a Rasberry Pi and a Lidar sensor. 
 Use at your own risk, this project is no longer maintained, but shared in hope it may be useful. 
 
 Use startScript.sh to start it up, you can manually trigger this or set it as a start script
