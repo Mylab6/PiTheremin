@@ -1,14 +1,9 @@
 # PiMidi
+Here's some very basic code to get a theremin like instament working with a Rasberry Pi and a Lidar sensor. 
+Use at your own risk, this project is no longer maintained, but shared in hope it may be useful. 
 
-Add some links 
+Use startScript.sh to start it up, you can manually trigger this or set it as a start script
 
-https://neuma.studio/rpi-as-midi-host.html
-https://github.com/Hecsall/arduino-midi-footswitch/issues/3#issuecomment-968376104
+PS: To get this to work you ether want to turn your Pi into a USB midi device or use my other project to transmit Midi over bluetooth.
 
-
-Seems to use the main bluez, which is much more current 
-https://mclarenlabs.com/blog/2019/01/15/korg-microkey-air-37-bluetooth-midi-keyboard-with-raspberry-pi/
-
-
-Maschine driver for Linux
-https://github.com/wrl/maschine.rs
+https://github.com/Mylab6/PiBluetoothMidSetup
