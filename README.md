@@ -4,6 +4,8 @@ Use at your own risk, this project is no longer maintained, but shared in hope i
 
 Use sudo startScript.sh to start it up, you can manually trigger this or set it as a start script
 
+You need an OLED and a Lidar sensor to get this working, when I have time I may upload a schematic. 
+
 PS: To get this to work you ether want to turn your Pi into a USB midi device or use my other project to transmit Midi over bluetooth.
 
 https://github.com/Mylab6/PiBluetoothMidSetup
