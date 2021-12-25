@@ -52,9 +52,9 @@ class BasicScreenControl:
 
         dn = os.path.dirname(os.path.realpath(__file__))
 
-        midiPath = os.path.join(dn, 'fonts', 'BodoniXT.ttf')
+        #midiPath = os.path.join(dn, 'fonts', 'ADD_YOU_OWN_FONT.tff')
 
-        self.font = ImageFont.truetype(midiPath, self.fontSize)
+        #self.font = ImageFont.truetype(midiPath, self.fontSize)
        # print(self.font)
         self.i = 0
         self.runScreen()
@@ -99,9 +99,11 @@ class BasicScreenControl:
         cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
         Disk = subprocess.check_output(cmd, shell=True)
 
+        # IF this doesn't work you might need to add your own font, 
+        ## using   font=self.font, in self.draw.text
         for index, newString in enumerate(self.currentTexts):
             self.draw.text((self.x, self.top + index * self.fontSize),       "" +
-                           str(newString),  font=self.font, fill=255)
+                           str(newString), fill=255)
 
         self.disp.image(self.image)
         self.disp.display()
