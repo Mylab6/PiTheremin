@@ -6,7 +6,7 @@ Use sudo startScript.sh to start it up, you can manually trigger this or set it 
 
 You need a rotary dila , a  OLED and a Lidar sensor to get this working
 
-Scematics located here.
+I started working on a Scematic, but didn't finish it:
 Schematics/TouchLessMidi.fzz
 OLED:
 
