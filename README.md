@@ -4,9 +4,10 @@ Use at your own risk, this project is no longer maintained, but shared in hope i
 
 Use sudo startScript.sh to start it up, you can manually trigger this or set it as a start script
 
-You need an OLED and a Lidar sensor to get this working, when I have time I may upload a schematic..
+You need a rotary dila , a  OLED and a Lidar sensor to get this working
 
-
+Scematics located here.
+Schematics/TouchLessMidi.fzz
 OLED:
 
 https://www.raspberrypi-spy.co.uk/2018/04/i2c-oled-display-module-with-raspberry-pi/
