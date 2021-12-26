@@ -4,6 +4,7 @@ Use at your own risk, this project is no longer maintained, but shared in hope i
 
 I think crontab has the startup script, I'm not 100% sure. 
 
+All the code that does anything is in KeithOS. 
 You need a rotary dila , a  OLED and a Lidar sensor to get this working
 
 I started working on a Scematic, but didn't finish it:
