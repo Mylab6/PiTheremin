@@ -1,7 +1,8 @@
 # PiTheremin
 Here's some very basic code to get a theremin like instrument working with a Rasberry Pi and a Lidar sensor. 
 Use at your own risk, this project is no longer maintained, but shared in hope it may be useful. 
-
+### The Pi will not create audio on it's own
+### It needs to be used like a midi controller
 I think crontab has the startup script, I'm not 100% sure. 
 
 All the code that does anything is in KeithOS. 
