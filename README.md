@@ -2,7 +2,7 @@
 Here's some very basic code to get a theremin like instrument working with a Rasberry Pi and a Lidar sensor. 
 Use at your own risk, this project is no longer maintained, but shared in hope it may be useful. 
 
-Use sudo startScript.sh to start it up, you can manually trigger this or set it as a start script
+I think crontab has the startup script, I'm not 100% sure. 
 
 You need a rotary dila , a  OLED and a Lidar sensor to get this working
 
