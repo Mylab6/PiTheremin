@@ -22,3 +22,8 @@ https://makersportal.com/blog/distance-detection-with-the-tf-luna-lidar-and-rasp
 PS: To get this to work you ether want to turn your Pi into a USB midi device or use my other project to transmit Midi over bluetooth.
 
 https://github.com/Mylab6/PiBluetoothMidSetup
+
+
+TR Lidar needs to be setup with 
+
+https://makersportal.com/blog/distance-detection-with-the-tf-luna-lidar-and-raspberry-pi
