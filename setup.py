@@ -19,5 +19,5 @@ try:
     bash_rc_location = '~/.bashrc'
     append_sys_file(add_to_path_str,bash_rc_location)
     print(' Good to reboot now')
-except: 
-    print('Could not open config.txt, are you root ?')              
+except Exception as e: 
+    print(e)              
