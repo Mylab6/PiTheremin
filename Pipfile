@@ -1,15 +1,6 @@
 [packages]
-mido="8"
-Pillow="*"
-gpiozero="*"
-serial="*"
-#numpy
-#sudo apt-get install libatlas-base-dev
-python-rtmidi="*"
-
-adafruit-circuitpython-mcp3xxx="*"
-adafruit-blinka="*"
-mxnet="*"
+Adafruit_GPIO = '*'
+Adafruit_SSD1306 ='*'
 
 [scripts]
 start_pi_midi = "python3 -m KeithOS"
