@@ -9,6 +9,7 @@ rtmidi="*"
 python-rtmidi="*"
 mido="*"
 serial="*"
+numpy="1.21.4"
 #"RPi.GPIO"="*"
 [scripts]
 start_pi_midi = "python3 -m KeithOS"

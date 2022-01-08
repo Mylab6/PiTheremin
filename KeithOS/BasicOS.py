@@ -29,7 +29,7 @@ class BasicOS:
         self.button19 = Button(19)
         self.rotaryReadInstance = RotaryRead()
         self.rotaryReadInstance.runDial()
-        midiPort = 1
+        midiPort = 2
         self.midiout, self.port_name = open_midioutput(midiPort)
         print('On port name ', self.port_name)
 

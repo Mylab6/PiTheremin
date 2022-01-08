@@ -15,7 +15,7 @@ midis = os.listdir(midiPath)
 print(midis)
 mid = MidiFile(os.path.join(midiPath, random.choice(midis)))
 # port = PrintPort()
-midiout, port_name = open_midioutput(1)
+midiout, port_name = open_midioutput(2)
 noteShift = 0  # random.randint(-5, 5)
 for message in mid.play():
     # print(msg)

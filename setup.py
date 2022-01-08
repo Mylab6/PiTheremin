@@ -18,8 +18,8 @@ try:
     subprocess.run('sudo apt-get install -y libjpeg-dev zlib1g-dev', shell=True)
     subprocess.run('sudo apt-get -y install python3-rpi.gpio', shell=True)
     subprocess.run('sudo apt-get install -y gcc libffi-dev libssl-dev python3-dev',shell=True)
-    subprocess.run('sudo apt-get install libjack0', shell=True)
-
+    subprocess.run('sudo apt-get install -y  libjack0', shell=True)
+    subprocess.run('sudo apt-get install -y libatlas-base-dev', shell=True)
     subprocess.run('sudo raspi-config nonint do_i2c 0', shell=True)
 
     uart_enable_str = 'enable_uart=1'
