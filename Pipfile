@@ -1,0 +1,4 @@
+[packages]
+requests = 'Adafruit_GPIO'
+[scripts]
+printspam = "python3 -m KeithOS"
