@@ -3,7 +3,8 @@ import subprocess
 def append_sys_file(text_to_add, file_location):
     print('Wirting to ', file_location)
     file_object = open(file_location, 'a+')
-    if text_to_add in file_object.read():
+    text_location = file_object.read().find(text_to_add)
+    if text_location:
         print('No need to update ', file_location)
     else:
         file_object.write("\n")                   
