@@ -15,6 +15,7 @@ def append_sys_file(text_to_add, file_location):
 try:
     subprocess.run('pip3 install pipenv', shell=True)
     subprocess.run(' sudo apt-get install -y python3-numpy', shell=True)
+    subprocess.run('sudo apt-get install -y libjpeg-dev zlib1g-dev', shell=True)
 
    
 
