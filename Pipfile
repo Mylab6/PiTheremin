@@ -6,6 +6,8 @@ gpiozero="*"
 wheel="*"
 setuptools="*"
 rtmidi="*"
+python-rtmidi="*"
+mido="*"
 #"RPi.GPIO"="*"
 [scripts]
 start_pi_midi = "python3 -m KeithOS"
