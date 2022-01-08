@@ -16,8 +16,9 @@ try:
     subprocess.run('pip3 install pipenv', shell=True)
     subprocess.run(' sudo apt-get install -y python3-numpy', shell=True)
     subprocess.run('sudo apt-get install -y libjpeg-dev zlib1g-dev', shell=True)
-    subprocess.run('sudo apt-get install python3-rpi.gpio', shell=True)
-   
+    subprocess.run('sudo apt-get -y install python3-rpi.gpio', shell=True)
+    subprocess.run('sudo apt-get install -y gcc libffi-dev libssl-dev python3-dev')
+    subprocess.run('sudo raspi-config nonint do_i2c 0')
 
     uart_enable_str = 'enable_uart=1'
     boot_config_file_location = '/boot/config.txt'
@@ -26,6 +27,10 @@ try:
     bash_rc_location = os.path.join( os.path.expanduser('~'), '.bashrc')
     append_sys_file(add_to_path_str,bash_rc_location)
     subprocess.run('pipenv install')
+    # you might need to do this manually latter, 
+
+    subprocess.run('export CFLAGS=-fcommon')
+    subprocess.run('pip3 install RPI.GPIO')
     print(' Good to reboot now')
 except Exception as e: 
     print(e)              
