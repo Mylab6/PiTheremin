@@ -1,6 +1,6 @@
 [packages]
 Adafruit_GPIO = '*'
 Adafruit-SSD1306 ='*'
-numpy='*'
+#numpy='*'
 [scripts]
 start_pi_midi = "python3 -m KeithOS"
