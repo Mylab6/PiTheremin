@@ -16,7 +16,7 @@ try:
     subprocess.run('pip3 install pipenv', shell=True)
     subprocess.run(' sudo apt-get install -y python3-numpy', shell=True)
     subprocess.run('sudo apt-get install -y libjpeg-dev zlib1g-dev', shell=True)
-
+    subprocess.run('sudo apt-get install python3-rpi.gpio', shell=True)
    
 
     uart_enable_str = 'enable_uart=1'
