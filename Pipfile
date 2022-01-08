@@ -1,4 +1,4 @@
 [packages]
 Adafruit_GPIO = '*'
 [scripts]
-printspam = "python3 -m KeithOS"
+start_pi_midi = "python3 -m KeithOS"
