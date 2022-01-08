@@ -1,5 +1,6 @@
 import subprocess
 def append_sys_file(text_to_add, file_location):
+    print('Wirting to ', file_location)
     file_object = open(file_location, 'a+')
     if text_to_add in file_object.read():
         print('No need to update ', file_location)
@@ -10,7 +11,7 @@ def append_sys_file(text_to_add, file_location):
     file_object.close()
   
 try:
-    subprocess.run('pip3 install pipenv', shell=True, check=True)
+    subprocess.run('pip3 install pipenv', shell=True)
     uart_enable_str = 'enable_uart=1'
     boot_config_file_location = '/boot/config.txt'
     append_sys_file(uart_enable_str,boot_config_file_location)
